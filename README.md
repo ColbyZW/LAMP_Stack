@@ -17,7 +17,7 @@ After that you will need to run `git pull origin main` the passphrase for the ss
 This will pull all of the changes made in Github to the DigitalOcean droplet.
 
 # Navigating to the Droplet in your Browser
-The droplet can be found [here](www.spl-16.xyz).
+The droplet can be found [here](http://www.spl-16.xyz).
 
 # Local Development
 ## Frontend
