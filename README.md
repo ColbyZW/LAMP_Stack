@@ -20,8 +20,11 @@ This will pull all of the changes made in Github to the DigitalOcean droplet.
 The droplet can be found <a href="http://www.spl-16.xyz" target="_blank">here</a>.
 
 # Local Development
-## Frontend
+## Project Management (Shaoyan)
+Tasks and issues that need to be completed will be tracked through Github issues.
+
+## Frontend (Stephen/Colby)
 Using VSCode open the project and right click on the html file you're editing.  Select `Copy Path` and paste it into your browser.  This will bring up the html page you're editing in your browser.  Any updates you make to the javascript or html page, just refresh the browser and they'll update.
 
-## Backend
+## Backend (Eddy/Colby/Hyrum)
 As of now, we can only test backend on the DigitalOcean droplet.  See 'Pushing Updates to the DigitalOcean Project' for how to get your changes onto the droplet.
