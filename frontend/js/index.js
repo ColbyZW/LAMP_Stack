@@ -38,10 +38,12 @@ function handleLogin() {
         return;
     }
 
+    // Send an object containing the username and a hashed password
     const data = {
         "username": username,
-        "password": password
+        "password": md5(password)
     }
+
 
     function handleResponse (responseText) {
         console.log(responseText)
