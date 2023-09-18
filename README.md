@@ -20,10 +20,6 @@ This will pull all of the changes made in Github to the DigitalOcean droplet.
 The droplet can be found <a href="http://www.spl-16.xyz" target="_blank">here</a>.
 
 # Local Development
-## Working on Issues
-To work on an issue make a new branch in your local project with the command: `git checkout -b <issue name>`. So if you were working on an issue called "Create Login Page" you would do 
-`git checkout -b create_login_page`. Once the issue is complete make a pull request to the main branch.
-
 ## Project Management (Shaoyan)
 Tasks and issues that need to be completed will be tracked through Github issues.
 
