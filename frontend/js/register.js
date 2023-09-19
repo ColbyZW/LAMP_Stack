@@ -1,15 +1,22 @@
-function handleLogin() {
+function handleRegister() {
     // Grab username and password
     const username = document.getElementById("usernameInput").value;
     const password = document.getElementById("passwordInput").value;
+    const confirmPassword = document.getElementById("confirmPasswordInput").value;
 
     // Grab the validation messages
     const userValidation = document.getElementById("usernameValidation");
     const passValidation = document.getElementById("passwordValidation");
+    const confirmPassValidation = document.getElementById("confirmPasswordValidation");
 
     // Reset the validation messages
     userValidation.textContent = ""
     passValidation.textContent = ""
+    confirmPassValidation.textContent = ""
+
+    if (password != confirmPassword) {
+        confirmPassValidation.textContent = "Passwords don't match!"
+    }
 
     // If either field is empty display a warning
     if (username === "") {
@@ -18,8 +25,11 @@ function handleLogin() {
     if (password === "") {
         passValidation.textContent = "Please enter a password"
     }
+    if (confirmPassword === "") {
+        confirmPassValidation.textContent = "Please confirm your password"
+    }
 
-    if (username === "" && password === "") {
+    if ((username === "" && password === "") || (password != confirmPassword)) {
         return;
     }
 
@@ -34,5 +44,5 @@ function handleLogin() {
         console.log(responseText)
     }
 
-    sendRequest("/backend/Login.php", data, handleResponse);
+    sendRequest("/backend/Register.php", data, handleResponse);
 }
