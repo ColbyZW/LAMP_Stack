@@ -42,6 +42,7 @@ function handleRegister() {
 
     function handleResponse (responseText) {
         console.log(responseText)
+        window.location.href = "main.html"
     }
 
     sendRequest("/backend/Register.php", data, handleResponse);
