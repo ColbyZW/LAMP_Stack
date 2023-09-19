@@ -19,7 +19,7 @@ function handleLogin() {
         passValidation.textContent = "Please enter a password"
     }
 
-    if (username === "" && password === "") {
+    if (username === "" || password === "") {
         return;
     }
 

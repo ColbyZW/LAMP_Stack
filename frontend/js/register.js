@@ -29,7 +29,7 @@ function handleRegister() {
         confirmPassValidation.textContent = "Please confirm your password"
     }
 
-    if ((username === "" && password === "") || (password != confirmPassword)) {
+    if ((username === "" || password === "") || (password != confirmPassword)) {
         return;
     }
 
