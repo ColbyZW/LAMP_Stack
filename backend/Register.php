@@ -1,3 +1,3 @@
 <?php
-    echo "Register";
+    print "Register";
 ?>
