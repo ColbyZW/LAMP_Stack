@@ -29,11 +29,12 @@ function handleLogin() {
         "password": md5(password)
     }
 
+    const payload = JSON.stringify(data);
 
     function handleResponse (responseText) {
         console.log(responseText)
         window.location.href = "main.html"
     }
 
-    sendRequest("/backend/Login.php", data, handleResponse);
+    sendRequest("/backend/Login.php", payload, handleResponse);
 }

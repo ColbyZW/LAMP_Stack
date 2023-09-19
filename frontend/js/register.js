@@ -39,11 +39,12 @@ function handleRegister() {
         "password": md5(password)
     }
 
+    const payload = JSON.stringify(data);
 
     function handleResponse (responseText) {
         console.log(responseText)
         window.location.href = "main.html"
     }
 
-    sendRequest("/backend/Register.php", data, handleResponse);
+    sendRequest("/backend/Register.php", payload, handleResponse);
 }
