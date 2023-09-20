@@ -15,5 +15,3 @@ function onPageLoad() {
 
     getRequest("/backend/GetAll.php", "username=", handleResponse);
 }
-
-window.onload = onPageLoad();
