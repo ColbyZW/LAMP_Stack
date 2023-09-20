@@ -20,8 +20,6 @@
         sendJson('{"message": "User with this name already exists",
                    "code": 400}');
     } else {
-        $stmt->close();
-        
         $stmt = $sqlConn->prepare("INSERT INTO users(username,password) VALUES(?,?)");
         $stmt->bind_param("ss", $inData["username"], $inData["password"]);
         $stmt->execute();
