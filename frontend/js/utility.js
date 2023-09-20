@@ -28,11 +28,9 @@ function getRequest(url, param, responseHandler) {
 function getCookie(cookie) {
     const cookies = document.cookie;
     const cookieArray = cookies.split(";");
-    console.log(cookies);
-    console.log(cookieArray);
     for (let i = 0; i < cookieArray.length; i++) {
-        if (cookieArray[i] === cookie) {
-            const currentCookie = cookieArray[i].split("=");
+        const currentCookie = cookieArray[i].split("=");
+        if (currentCookie[0] === cookie) {
             return currentCookie[1];
         }
     }
