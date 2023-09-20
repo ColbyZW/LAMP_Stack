@@ -18,7 +18,7 @@
             <div class="card-body d-flex flex-column justify-content-center">
                 <h5 class="text-center my-3 card-title">Contact Manager Login</h5> 
                 
-                <! Use the action attribute creates a PHP file named "Login.php" that contains the form data.
+                <! The following "action" attribute creates a form that will be sent to the PHP file named "Login.php".
                     The "post" method has the following attibutes:
                         Appends form-data inside the body of the HTTP request (data is not shown in URL)
                         Has no size limitations
@@ -27,7 +27,7 @@
                 <form action="Login.php" method="post">
 
                     <!"username" is the name of the post variable that PHP forms contains. To retrieve this 
-                        post variable use "$_POST['username']" in Login.PHP Same for the password.
+                        post variable use "$_POST['username']" in Login.PHP. Same goes for the password.
                     >
                     <label for="username">
                         <i class="fas fa-user"></i>
