@@ -5,7 +5,7 @@ function onPageLoad() {
     const cookie = getCookie("username");
 
     const toastElList = document.querySelectorAll('.toast')
-    const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option))
+    const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl))
 
     if (cookie === "") {
         window.location.href = "index.html"
