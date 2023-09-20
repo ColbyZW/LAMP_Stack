@@ -7,7 +7,8 @@
         sendJson('{"message": "Error connecting to database", "code": 401}');
     }
 
-    $stmt = $sqlConn->prepare("SELECT * FROM users WHERE username = " . $inData["username"]);
+    $stmt = $sqlConn->prepare("SELECT * FROM users WHERE username =?");
+    $stmt->bind_param("s", $inData["username"]);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -22,7 +23,7 @@
         sendJson('{"message": "User with this name already exists", "code": 400}');
     } else {
         $stmt->close();
-        $stmt = $sqlConn->prepare("INSERT INTO users(username,password) VALUES(?,?)");
+        $stmt = $sqlConn->prepare("INSERT INTO users (username,password) VALUES(?,?)");
         $stmt->bind_param("ss", $inData["username"], $inData["password"]);
         $stmt->execute();
         $stmt->close();
