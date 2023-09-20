@@ -33,7 +33,6 @@ function handleLogin() {
 
     function handleResponse (responseText) {
         console.log(responseText)
-        window.location.href = "main.html"
     }
 
     sendRequest("/backend/Login.php", payload, handleResponse);
