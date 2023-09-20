@@ -1,11 +1,11 @@
 function onPageLoad() {
     const tableBody = document.getElementById("contactTable");
-    const tableTitle = document.getElementById("tableBanner").value;
     const cookie = getCookie("username");
 
     if (cookie === "") {
         window.location.href = "index.html"
     } else {
+        const tableTitle = document.getElementById("tableBanner").value;
         tableBody.textContent = `Viewing ${cookie}\'s Contacts`;
     }
 
