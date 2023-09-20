@@ -12,3 +12,27 @@ function sendRequest(url, data, responseHandler) {
         }
     }
 }
+
+function getRequest(url, param, responseHandler) {
+    let request = new XMLHttpRequest();
+    request.open("GET", url+"?"+param);
+    request.send();
+
+    request.onload = () => {
+        if (request.status === 200) {
+            responseHandler(request.responseText);
+        }
+    }
+}
+
+function getCookie(cookie) {
+    const cookies = document.cookie;
+    const cookieArray = cookies.split(";");
+    for (let i = 0; i < cookieArray.length; i++) {
+        if (cookieArray[i] === cookie) {
+            const currentCookie = cookieArray[i].split("=");
+            return currentCookie[1];
+        }
+    }
+    return "";
+}
