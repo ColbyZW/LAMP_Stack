@@ -10,11 +10,15 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ( $row = $result->fetch_assoc() ) {
-        sendJson($row["username"]);
+    $searchResults = "";
+    while ( $row = $result->fetch_assoc() ) {
+        $searchResults .= $row["name"];
     }
 
-    sendJson($result);
+    sendJson($searchResults);
+
+    $stmt->close();
+    $sqlConn->close();
 
     function sendJson ($obj) {
         header('Content-Type: application/json');
