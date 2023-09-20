@@ -28,23 +28,22 @@
     echo 'checkpoint';
     echo "</br>"; 
 
-    // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-    if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
-        // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
         /*bind types:
             i	corresponding variable has type int
             d	corresponding variable has type float
             s	corresponding variable has type string
             b	corresponding variable is a blob and will be sent in packets
         */
+
+    // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
+    if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+        // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
+       
         $stmt->bind_param('s', $_POST['username']);
         $stmt->execute();
         // Store the result so we can check if the account exists in the database.
         $stmt->store_result();
     
-        echo 'checkpoint 2';
-        echo "</br>"; 
-
         if ($stmt->num_rows > 0) {
             $stmt->bind_result($id, $password);
             $stmt->fetch();
@@ -73,6 +72,4 @@
 
         $stmt->close();
     }
-}
-
 ?>
