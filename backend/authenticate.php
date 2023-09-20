@@ -47,9 +47,15 @@ echo 'checkpoint 2';
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
 if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();
-	// Store the result so we can check if the account exists in the database.
+	echo 'checkpoint 3';
+    echo "</br>"; 
+    $stmt->bind_param('s', $_POST['username']);
+	echo 'checkpoint 4';
+    echo "</br>"; 
+    $stmt->execute();
+	echo 'checkpoint 5';
+    echo "</br>"; 
+    // Store the result so we can check if the account exists in the database.
 	$stmt->store_result();
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($id, $password);
