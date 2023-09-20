@@ -10,6 +10,9 @@
     $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
     
     echo 'MySQL connected!';
+    $temp = $_POST['username'];
+    echo 'user name = ';
+    echo $temp;
     
     if ( mysqli_connect_errno() ) {
         // If there is an error with the connection, stop the script and display the error.
@@ -21,9 +24,6 @@
 	// Could not get the data that should have been sent.
 	exit('Please fill both the username and password fields!');
     
-    $temp = $_POST['username'];
-    echo 'user name = ';
-    echo $temp;
 
     // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
     if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
