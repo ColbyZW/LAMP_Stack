@@ -20,6 +20,7 @@
     echo $temp;
     echo "</br>"; 
     
+    /*
     if ( mysqli_connect_errno() ) {
         // If there is an error with the connection, stop the script and display the error.
         exit('Failed to connect to MySQL: ' . mysqli_connect_error());
@@ -29,7 +30,7 @@
     if (!isset($_POST['username'], $_POST['password'])) {
 	// Could not get the data that should have been sent.
 	exit('Please fill both the username and password fields!');
-    
+    */
     echo 'checkpoint';
     echo "</br>"; 
 
