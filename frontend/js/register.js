@@ -9,10 +9,13 @@ function handleRegister() {
     const passValidation = document.getElementById("passwordValidation");
     const confirmPassValidation = document.getElementById("confirmPasswordValidation");
 
+    const errorText = document.getElementById("errorText");
+
     // Reset the validation messages
     userValidation.textContent = ""
     passValidation.textContent = ""
     confirmPassValidation.textContent = ""
+    errorText.textContent = "";
 
     if (password != confirmPassword) {
         confirmPassValidation.textContent = "Passwords don't match!"
@@ -42,7 +45,22 @@ function handleRegister() {
     const payload = JSON.stringify(data);
 
     function handleResponse (responseText) {
-        console.log(responseText)
+        const response = JSON.parse(responseText);
+        if (response.code === 200) {
+            let date = new Date();
+            date.setTime(date.getTime() + (30 * 60 * 1000));
+            document.cookie = "username="+response.username+";expires="+date.toGMTString();
+            window.location.href = "main.html";
+            return;
+        }
+        if (response.code === 400) {
+           errorText.textContent = "A user already exists with the username" 
+           return;
+        } else {
+            errorText.textContent = "Sorry, we had an unexpected error, please try again";
+            return;
+        }
+
     }
 
     sendRequest("/backend/Register.php", payload, handleResponse);

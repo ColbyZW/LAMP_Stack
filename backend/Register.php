@@ -4,21 +4,34 @@
     $sqlConn = new mysqli("localhost", "root", "SPL-16P@ss", "COP4331");
 
     if ($sqlConn->connect_error) {
-        sendJson('{"success": false}');
+        sendJson('{"message": "Error connecting to database", "code": 401}');
     }
-    $stmt = $sqlConn->prepare("SELECT * FROM users");
+
+    $stmt = $sqlConn->prepare("SELECT * FROM users WHERE username =?");
+    $stmt->bind_param("s", $inData["username"]);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $searchResults = "";
+    $matches = 0;
     while ( $row = $result->fetch_assoc() ) {
-        $searchResults .= $row["username"];
+        $matches++;
     }
 
-    sendJson($searchResults);
+    if ( $matches != 0 ) {
+        $stmt->close();
+        $sqlConn->close();
+        sendJson('{"message": "User with this name already exists", "code": 400}');
+    } else {
+        $stmt->close();
+        $stmt = $sqlConn->prepare("INSERT INTO users (username,password) VALUES(?,?)");
+        $stmt->bind_param("ss", $inData["username"], $inData["password"]);
+        $stmt->execute();
+        $stmt->close();
+        $sqlConn->close();
 
-    $stmt->close();
-    $sqlConn->close();
+        sendJson('{"message": "Successfully created user", "code": 200, "username": "' . $inData["username"] . '"}');
+    }
+
 
     function sendJson ($obj) {
         header('Content-Type: application/json');
