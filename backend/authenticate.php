@@ -51,6 +51,8 @@
             // Account exists, now we verify the password.
             // Note: remember to use password_hash in your registration file to store the hashed passwords.
             
+            echo 'account found!';
+
             if ($_POST['password'] === $password) { // This "if" statement verifies passwords in plain text. Used for testing only!
             //if (password_verify($_POST['password'], $password)) { // Use this if statement for production
                 // Verification success! User has logged-in!
