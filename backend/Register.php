@@ -7,7 +7,6 @@
         sendJson('{"message": "Error connecting to database", "code": 401}');
     }
 
-    sendJson($inData);
     $stmt = $sqlConn->prepare("SELECT * FROM users WHERE username = " . $inData["username"]);
     $stmt->execute();
     $result = $stmt->get_result();
