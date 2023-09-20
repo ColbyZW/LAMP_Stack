@@ -8,6 +8,7 @@ function sendRequest(url, data, responseHandler) {
     // Handle the response with the function we pass in
     request.onload = () => {
         if (request.status === 200) {
+            console.log(request)
             responseHandler(request.responseText);
         }
     }
