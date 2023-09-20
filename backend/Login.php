@@ -10,6 +10,10 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
+    if ( $row = $result->fetch_assoc() ) {
+        sendJson($row["username"])
+    }
+
     sendJson($result);
 
     function sendJson ($obj) {
