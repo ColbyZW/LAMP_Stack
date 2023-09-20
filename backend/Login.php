@@ -20,7 +20,6 @@
     }
     */
 
-    //test
 
     session_start();
     //login info
