@@ -15,7 +15,8 @@ If you haven't made a branch yet do: `git checkout -b <name of branch>`
 # Pushing Updates to the DigitalOcean Droplet
 First ssh into the droplet: `ssh root@104.131.2.162` and enter the password we made  
 Then run this command: `cd /var/www/spl-16/LAMP_Stack`  
-To switch to your changes on the droplet type in `git switch <your branch>`
+To switch to your changes on the droplet type in `git switch <your branch>`  
+Then run the command: `git pull origin <your branch>`
 
 # Navigating to the Droplet in your Browser
 The droplet can be found <a href="http://www.spl-16.xyz" target="_blank">here</a>.
