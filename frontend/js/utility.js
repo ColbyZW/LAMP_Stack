@@ -9,8 +9,11 @@ function sendRequest(url, data, responseHandler) {
     request.onload = () => {
         if (request.status === 200) {
             responseHandler(request.responseText);
+        } else {
+            responseHandler("{\"message\": \"Unable to reach the server\", \"code\": 500}");
         }
     }
+
 }
 
 function getRequest(url, param, responseHandler) {
