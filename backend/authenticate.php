@@ -30,6 +30,8 @@
 	// Could not get the data that should have been sent.
 	exit('Please fill both the username and password fields!');
     
+    echo 'checkpoint';
+    echo "</br>"; 
 
     // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
     if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
