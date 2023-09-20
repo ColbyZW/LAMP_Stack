@@ -4,6 +4,9 @@ function onPageLoad() {
     const toastText = document.getElementById("toastBodyText");
     const cookie = getCookie("username");
 
+    const toastElList = document.querySelectorAll('.toast')
+    const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option))
+
     if (cookie === "") {
         window.location.href = "index.html"
     } else {
