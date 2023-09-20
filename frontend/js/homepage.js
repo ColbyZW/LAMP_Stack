@@ -1,12 +1,12 @@
 function onPageLoad() {
     const tableBody = document.getElementById("contactTable");
-    const tableTitle = document.getElementById("tableBanner").value;
+    const tableTitle = document.getElementById("tableBanner");
     const cookie = getCookie("username");
 
     if (cookie === "") {
         window.location.href = "index.html"
     } else {
-        tableTitle.textContent = `Viewing ${cookie}\'s Contacts`;
+        tableTitle.innerText = `Viewing ${cookie}\'s Contacts`;
     }
 
     function handleResponse (responseText) {
