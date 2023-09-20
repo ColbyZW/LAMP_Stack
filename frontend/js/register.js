@@ -45,6 +45,7 @@ function handleRegister() {
     const payload = JSON.stringify(data);
 
     function handleResponse (responseText) {
+        console.log(responseText);
         if (responseText.code === 200) {
             let date = new Date();
             date.setTime(date.getTime() + (30 * 60 * 1000));
