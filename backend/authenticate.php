@@ -28,14 +28,6 @@
     echo 'checkpoint';
     echo "</br>"; 
 
-    // Check if the data from the login form was submitted, isset() will check if the data exists.
-    if (!isset($_POST['username'], $_POST['password'])) {
-	// Could not get the data that should have been sent.
-	exit('Please fill both the username and password fields!');
-    
-    echo 'checkpoint';
-    echo "</br>"; 
-
     // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
     if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
         // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
@@ -50,6 +42,9 @@
         // Store the result so we can check if the account exists in the database.
         $stmt->store_result();
     
+        echo 'checkpoint 2';
+        echo "</br>"; 
+
         if ($stmt->num_rows > 0) {
             $stmt->bind_result($id, $password);
             $stmt->fetch();
