@@ -29,7 +29,7 @@
         $stmt->close();
         $sqlConn->close();
 
-        sendJson('{"message": "Successfully created user", "code": "200", "username": "' . $inData["username"] . '"}');
+        sendJson('{"message": "Successfully created user", "code": 200, "username": "' . $inData["username"] . '"}');
     }
 
 

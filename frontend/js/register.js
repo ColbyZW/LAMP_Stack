@@ -46,14 +46,14 @@ function handleRegister() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
-        if (response.code === "200") {
+        if (response.code === 200) {
             let date = new Date();
             date.setTime(date.getTime() + (30 * 60 * 1000));
             document.cookie = "username="+response.username+";expires="+date.toGMTString();
             window.location.href = "main.html";
             return;
         }
-        if (response.code === "400") {
+        if (response.code === 400) {
            errorText.textContent = "A user already exists with the username" 
            return;
         } else {
