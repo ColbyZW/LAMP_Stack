@@ -44,6 +44,12 @@
     // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
     if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
         // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
+        /*bind types:
+            i	corresponding variable has type int
+            d	corresponding variable has type float
+            s	corresponding variable has type string
+            b	corresponding variable is a blob and will be sent in packets
+        */
         $stmt->bind_param('s', $_POST['username']);
         $stmt->execute();
         // Store the result so we can check if the account exists in the database.
@@ -55,7 +61,7 @@
             // Account exists, now we verify the password.
             // Note: remember to use password_hash in your registration file to store the hashed passwords.
             
-            if ($_POST['password'] === $password) { // This if statement checks plain text passwords. For testing only
+            if ($_POST['password'] === $password) { // This "if" statement verifies passwords in plain text. Used for testing only!
             //if (password_verify($_POST['password'], $password)) { // Use this if statement for production
                 // Verification success! User has logged-in!
                 // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.

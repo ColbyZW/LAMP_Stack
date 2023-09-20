@@ -17,25 +17,31 @@
         <div class="card rounded-sm border border-secondary">
             <div class="card-body d-flex flex-column justify-content-center">
                 <h5 class="text-center my-3 card-title">Contact Manager Login</h5> 
+                
+                <! Use the action attribute creates a PHP file named "Login.php" that contains the form data.
+                    The "post" method has the following attibutes:
+                        Appends form-data inside the body of the HTTP request (data is not shown in URL)
+                        Has no size limitations
+                        Form submissions with POST cannot be bookmarked
+                >
+                <form action="Login.php" method="post">
 
-                <!-- Username -->
-                <div class="mb-3">
-                    <label for="usernameInput" class="form-label">Username</label>
-                    <input required type="text" class="form-control" id="usernameInput">
-                    <div class="text-danger" id="usernameValidation"></div>
-                </div>
+                    <!"username" is the name of the post variable that PHP forms contains. To retrieve this 
+                        post variable use "$_POST['username']" in Login.PHP Same for the password.
+                    >
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                    </label>
+                    <input type="text" name="username" placeholder="Username" id="username" required>
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                    </label>
+                    <input type="password" name="password" placeholder="Password" id="password" required>
 
-                <!-- Password -->
-                <div class="mb-3">
-                    <label for="passwordInput" class="form-label">Password</label>
-                    <input required type="password" class="form-control" id="passwordInput">
-                    <div class="text-danger" id="passwordValidation"></div>
-                    <div id="passwordHelp" class="form-text">Passwords are case-sensitive</div>
-                </div>
-
-                <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="handleLogin()">Login</button>
-
-                <div class="text-center">Need to make an account? <a href="./registration.html">Register here</a></div>
+                    <!This "submit" will send the data to Login.php for processing.>
+                    <input type="submit" value="Login">
+                </form>
+                
             </div>
         </div>
 
