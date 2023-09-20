@@ -16,4 +16,4 @@ function onPageLoad() {
     getRequest("/backend/GetAll.php", "username=", handleResponse);
 }
 
-document.addEventListener('DOMContentLoaded', onPageLoad());
+window.onload = onPageLoad();
