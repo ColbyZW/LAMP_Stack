@@ -45,7 +45,7 @@ echo 'checkpoint 2';
     echo "</br>"; 
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
 	echo 'checkpoint 3';
     echo "</br>"; 
