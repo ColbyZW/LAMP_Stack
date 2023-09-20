@@ -12,7 +12,7 @@
 
     $searchResults = "";
     while ( $row = $result->fetch_assoc() ) {
-        $searchResults .= $row["name"];
+        $searchResults .= $row["username"];
     }
 
     sendJson($searchResults);
