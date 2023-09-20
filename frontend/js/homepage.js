@@ -1,6 +1,6 @@
 function onPageLoad() {
     const tableBody = document.getElementById("contactTable");
-    const tableTitle = document.getElementById("tableTitle").value;
+    const tableTitle = document.getElementById("tableBanner").value;
     const cookie = getCookie("username");
 
     if (cookie === "") {
