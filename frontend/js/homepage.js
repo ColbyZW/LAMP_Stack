@@ -2,6 +2,7 @@ function onPageLoad() {
     const tableBody = document.getElementById("contactTable");
     const tableTitle = document.getElementById("tableBanner");
     const cookie = getCookie("username");
+    console.log(cookie)
 
     if (cookie === "") {
         window.location.href = "index.html"
