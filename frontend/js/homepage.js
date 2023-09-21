@@ -11,6 +11,8 @@ function onPageLoad() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
+        console.log(response);
+
     }
 
     getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
