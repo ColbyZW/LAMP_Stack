@@ -8,9 +8,6 @@
     
     $inData = json_decode(file_get_contents('php://input'), true);
 
-    echo $inData['username'];
-
-
     //connect
     $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
     
