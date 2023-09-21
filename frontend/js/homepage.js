@@ -5,7 +5,7 @@ function onPageLoad() {
     console.log(cookie)
 
     if (cookie === "") {
-        window.location.href = "index.html"
+        //window.location.href = "index.html"
     } else {
         tableTitle.innerText = `Viewing ${cookie}\'s Contacts`;
     }
