@@ -57,16 +57,21 @@
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['name'] = $inData['username'];
                 $_SESSION['id'] = $id;
-                header('Location: /backend/home.php');
+                sendJson('{"message": "Successfully logged in", "code": 200, "username": "' . $inData["username"] . '"}');
                 exit;
             } else {
                 // Incorrect password
-                echo 'Incorrect username and/or password!';
+                sendJson('{"message": "Incorrect username/password", "code": 401}');
             }
         } else {
             // Incorrect username
-            echo 'Check your username and/or password!';
+            sendJson('{"message": "Incorrect username/password", "code": 401}');
         }
         $stmt->close();
+    }
+
+   function sendJson ($obj) {
+        header('Content-Type: application/json');
+        echo $obj;
     }
 ?>
