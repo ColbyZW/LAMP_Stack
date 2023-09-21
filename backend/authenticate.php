@@ -6,6 +6,8 @@
     $DATABASE_PASS = 'SPL-16P@ss';
     $DATABASE_NAME = 'COP4331';
     
+    $inData = json_decode(file_get_contents('php://input'), true);
+
     //connect
     $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
     
@@ -15,7 +17,7 @@
     }
 
     // Now we check if the data from the login form was submitted, isset() will check if the data exists.
-if ( !isset($_POST['username'], $_POST['password']) ) {
+if ( !isset($inData['username'], $inData['password']) ) {
 	// Could not get the data that should have been sent.
 	exit('Please fill both the username and password fields!');
 }
@@ -30,7 +32,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
             b	corresponding variable is a blob and will be sent in packets
         */
 
-    $stmt->bind_param('s', $_POST['username']);
+    $stmt->bind_param('s', $inData['username']);
 
     $stmt->execute();
     
@@ -47,13 +49,13 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
         //if (md5($_POST['password']) === $password) {
         
         //Use this if statement for plain text passwords. For testing only.
-        if ($_POST['password'] === $password) {
+        if ($inData['password'] === $password) {
 
             // Verification success! User has logged-in!
             // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
-            $_SESSION['name'] = $_POST['username'];
+            $_SESSION['name'] = $inData['username'];
             $_SESSION['id'] = $id;
             header('Location: /backend/home.php');
             exit;
