@@ -33,9 +33,8 @@ function getCookie(cookie) {
     const cookieArray = cookies.split(";");
     for (let i = 0; i < cookieArray.length; i++) {
         const currentCookie = cookieArray[i].split("=");
-        console.log(currentCookie);
-        if (currentCookie[0] === cookie) {
-            return currentCookie[1];
+        if (currentCookie[0].trim() === cookie) {
+            return currentCookie[1].trim();
         }
     }
     return "";
