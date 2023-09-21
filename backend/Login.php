@@ -52,11 +52,6 @@
             if ($inData['password'] === $password) {
 
                 // Verification success! User has logged-in!
-                // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
-                session_regenerate_id();
-                $_SESSION['loggedin'] = TRUE;
-                $_SESSION['name'] = $inData['username'];
-                $_SESSION['id'] = $id;
                 sendJson('{"message": "Successfully logged in", "code": 200, "username": "' . $inData["username"] . '"}');
                 exit;
             } else {
