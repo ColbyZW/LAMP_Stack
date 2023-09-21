@@ -43,11 +43,12 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
         // If account exists, now we verify the password.
         // Note: remember to use password_hash in your registration file to store the hashed passwords.
         
-        //Use this if statement for hashed passwords.
-        //if (password_verify($_POST['password'], $password)) {
+        //Use this if statement for MD5 hashed passwords.
+        if (md5($_POST['password']) === $password) {
         
         //Use this if statement for plain text passwords. For testing only.
-        if ($_POST['password'] === $password) {
+        //if ($_POST['password'] === $password) {
+
             // Verification success! User has logged-in!
             // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
             session_regenerate_id();
