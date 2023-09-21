@@ -44,10 +44,17 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
         // Note: remember to use password_hash in your registration file to store the hashed passwords.
         
         //Use this if statement for MD5 hashed passwords.
+<<<<<<< HEAD
         if (md5($_POST['password']) === $password) {
         
         //Use this if statement for plain text passwords. For testing only.
         //if ($_POST['password'] === $password) {
+=======
+        //if (md5($_POST['password']) === $password) {
+        
+        //Use this if statement for plain text passwords. For testing only.
+        if ($_POST['password'] === $password) {
+>>>>>>> 7114aac6124c27e3b61572463877d3d86d72c3d8
 
             // Verification success! User has logged-in!
             // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
