@@ -22,9 +22,10 @@
         $sqlConn->close();
         sendJson('{"message": "User with this name already exists", "code": 400}');
     } else {
+        $uuid = uniqid();
         $stmt->close();
-        $stmt = $sqlConn->prepare("INSERT INTO users (username,password) VALUES(?,?)");
-        $stmt->bind_param("ss", $inData["username"], $inData["password"]);
+        $stmt = $sqlConn->prepare("INSERT INTO users (username,password,id) VALUES(?,?,?)");
+        $stmt->bind_param("sss", $inData["username"], $inData["password"], $uuid);
         $stmt->execute();
         $stmt->close();
         $sqlConn->close();

@@ -50,7 +50,7 @@ function handleRegister() {
             let date = new Date();
             date.setTime(date.getTime() + (30 * 60 * 1000));
             document.cookie = "username="+response.username+";expires="+date.toGMTString();
-            window.location.href = "main.html";
+            window.location.href = "homepage.html";
             return;
         }
         if (response.code === 400) {
