@@ -25,7 +25,7 @@
         $uuid = uniqid();
         $stmt->close();
         $stmt = $sqlConn->prepare("INSERT INTO users (username,password,id) VALUES(?,?,?)");
-        $stmt->bind_param("ss", $inData["username"], $inData["password"], $uuid);
+        $stmt->bind_param("sss", $inData["username"], $inData["password"], $uuid);
         $stmt->execute();
         $stmt->close();
         $sqlConn->close();
