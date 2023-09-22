@@ -20,3 +20,7 @@ function handleLogout() {
     document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     window.location.href = "index.html"
 }
+
+function displayAddContactsPage() {
+    window.location.href = "add_contact.html";
+}
