@@ -1,7 +1,16 @@
 function handleLogin() {
+    // See if the user is still logged in
+    const cookie = getCookie("username");
+
+    // If there is a cookie set we go to the homepage
+    if (cookie != "") {
+        window.location.href = "homepage.html"
+    } 
+
     // Grab username and password
     const username = document.getElementById("usernameInput").value;
     const password = document.getElementById("passwordInput").value;
+
 
     // Grab the validation messages
     const userValidation = document.getElementById("usernameValidation");
