@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../js/utility.js"></script>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <title>Add New Contact</title>
+</head>
+<body class="vh-100">
+    <div class="d-flex mx-auto flex-column justify-content-center w-50 h-100">
+    
+        <!-- Add Contact Card -->
+        <div class="card rounded-sm border border-secondary">
+            <div class="card-body d-flex flex-column justify-content-center">
+                <h5 class="text-center my-3 card-title">Add New Contact</h5> 
+
+                <!-- Contact Name -->
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Contact Name</label>
+                    <input required type="text" class="form-control" id="name">
+                    <div class="text-danger" id="nameValidation"></div>
+                </div>
+
+                <!-- Contact Phone Number -->
+                <div class="mb-3">
+                    <label for="phoneNumberInput" class="form-label">Contact Phone Number</label>
+                    <input required type="text" class="form-control" id="number">
+                    <div class="text-danger" id="phoneNumberValidation"></div>
+                </div>
+
+                <div class="text-center text-danger" id="errorText"></div>
+
+                <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="addContact()">Submit</button>
+
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
