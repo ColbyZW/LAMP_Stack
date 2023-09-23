@@ -64,6 +64,6 @@ function handleLogin() {
     sendRequest("/backend/Login.php", payload, handleResponse);
 }
 
-function addNewContactsPage{
+function addNewContactsPage(){
     window.location.href = "add_contact.html";
 }
