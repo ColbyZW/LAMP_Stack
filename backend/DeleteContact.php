@@ -8,7 +8,7 @@
     }
 
     $stmt = $sqlConn->prepare("DELETE FROM contact_info WHERE username=? AND uuid=?");
-    $stmt->bind_param("ssss", $inData["username"], $inData["contactId"]);
+    $stmt->bind_param("ss", $inData["username"], $inData["contactId"]);
     $stmt->execute();
     $result = $stmt->get_result();
 
