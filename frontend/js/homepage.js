@@ -11,6 +11,15 @@ function onPageLoad() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
+        if (response.code === 500) {
+            const errorRow = document.createElement("tr");
+            const errorMessage = document.createElement("td");
+            errorMessage.colSpan = "4";
+            errorMessage.innerHTML = response.message;
+            errorMessage.className = "text-danger text-center";
+            errorRow.append(errorMessage);
+            tableBody.append(errorRow);
+        }
     }
 
     getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
