@@ -27,6 +27,10 @@ function getRequest(url, param, responseHandler) {
             responseHandler("{\"message\": \"Unable to reach the server\", \"code\": 500}");
         }
     }
+
+    request.onerror = () => {
+        responseHandler("{\"message\": \"Unable to reach the server\", \"code\": 500}");
+    }
 }
 
 function getCookie(cookie) {
