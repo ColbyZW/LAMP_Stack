@@ -16,7 +16,7 @@ function onPageLoad() {
             const errorMessage = document.createElement("td");
             errorMessage.colSpan = "4";
             errorMessage.innerHTML = response.message;
-            errorMessage.classList.add(["text-danger", "text-center"]);
+            errorMessage.className = "text-danger text-center";
             errorRow.append(errorMessage);
             tableBody.append(errorRow);
         }
