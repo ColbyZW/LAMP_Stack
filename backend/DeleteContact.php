@@ -7,12 +7,12 @@
         sendJson('{"message": "Error connecting to database", "code": 401}');
     }
 
-    $stmt = $sqlConn->prepare("UPDATE contact_info SET name=?, email=?, phone=? WHERE username=? AND uuid=?");
-    $stmt->bind_param("ssss", $inData["contactName"], $inData["contactEmail"], $inData["contactPhoneNumber"], $inData["username"], $inData["contactId"]);
+    $stmt = $sqlConn->prepare("DELETE FROM contact_info WHERE username=? AND uuid=?");
+    $stmt->bind_param("ssss", $inData["username"], $inData["contactId"]);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    sendJson('{"message": "Successfully updated contact", "code": 200}');
+    sendJson('{"message": "Successfully deleted contact", "code": 200}');
 
     function sendJson ($obj) {
         header('Content-Type: application/json');
