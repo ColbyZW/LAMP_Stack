@@ -11,12 +11,11 @@ function onPageLoad() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
-        console.log(response)
         if (response.code === 500) {
             const errorRow = document.createElement("tr");
             const errorMessage = document.createElement("td");
-            errorMessage.colSpan = "2";
-            errorMessage.textContent = response.errorMessage;
+            errorMessage.colSpan = "4";
+            errorMessage.innerHTML = response.errorMessage;
             errorMessage.classList.add(["text-danger", "text-center"]);
             errorRow.append(errorMessage);
             tableBody.append(errorRow);
