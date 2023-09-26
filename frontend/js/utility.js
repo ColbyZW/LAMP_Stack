@@ -10,6 +10,7 @@ function sendRequest(url, data, responseHandler) {
         if (request.status === 200) {
             responseHandler(request.responseText);
         } else {
+            responseHandler("{\"message\": \"Unable to reach the server\", \"code\": 500}");
         }
     }
 
