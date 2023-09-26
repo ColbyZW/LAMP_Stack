@@ -41,9 +41,7 @@
         {
             returnWithError("User has no contacts");
         }
-
-        $usIDsrch->close();
-        $userIDconn->close();
+        
         $stmt->close();
         $conn->close();
     }
