@@ -53,6 +53,9 @@ function addContact() {
     if (contactEmail === "") {
         emailError.textContent = "Please enter an email";
     }
+    if (!contactEmail.includes("@") && !contactEmail.includes(".")) {
+        emailError.textContent = "Please enter a valid email";
+    }
 
     if (emailError.textContent != "" || numberError.textContent != "" || nameError.textContent != "") {
         return;
