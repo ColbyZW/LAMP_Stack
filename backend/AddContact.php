@@ -8,8 +8,8 @@
     }
     $uuid = uniqid();
 
-    $stmt = $sqlConn->prepare("INSERT INTO contact_info (username, contactName, contactNumber, uuid) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $inData["username"], $inData["contactName"], $inData["contactNumber"], $uuid);
+    $stmt = $sqlConn->prepare("INSERT INTO contact_info (name, email, phone, username, uuid) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $inData["contactName"], $inData["contactEmail"], $inData["contactNumber"], $inData["username"], $uuid);
     $stmt->execute();
     
     sendJson('{"message": "Successfully added contact", "code": 200}');
