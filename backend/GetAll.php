@@ -27,9 +27,9 @@
 			$searchCount++;
 			$searchResults .= 
                 '{' 
-                . '"contactName:"' . $row["name"] . ","
-                . '"contactEmail:"' . $row["email"]  . ","
-                . '"contactPhoneNumber:"' . $row["phone"] . ","
+                . '"contactName":' . $row["name"] . ","
+                . '"contactEmail":' . $row["email"]  . ","
+                . '"contactPhoneNumber":' . $row["phone"] . ","
                 . '},';
         }
 
