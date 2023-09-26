@@ -59,6 +59,11 @@ function handleDelete(contactId) {
     const payload = JSON.stringify(data);
 
     function handleResponse(responseText){
+        if(responseText.code === 200)
+        {
+            //refresh el browser-o
+            location.reload();
+        }
         if(responseText.code === 500)
         {
             console.log("Unable to delete");

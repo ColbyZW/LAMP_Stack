@@ -18,4 +18,7 @@
         header('Content-Type: application/json');
         echo $obj;
     }
+
+    $stmt->close();
+    $sqlConn->close();
 ?>
