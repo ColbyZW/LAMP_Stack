@@ -23,7 +23,7 @@ function onPageLoad() {
                 email.innerHTML = result.contactEmail;
                 number.innerHTML = result.contactPhoneNumber;
                 options.innerHTML = `<button type="button" onClick="handleDelete(${result.uuid})" class="btn btn-danger">Delete Contact</button>
-                                     <button type="button" onClick="handleEdit(${result.uuid})" class="btn btn-seconday">Edit Contact</button>`;
+                                     <button type="button" onClick="handleEdit(${result.uuid})" class="btn btn-secondary">Edit Contact</button>`;
 
                 newRow.append(name);
                 newRow.append(number);
