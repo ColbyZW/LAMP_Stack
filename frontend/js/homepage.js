@@ -48,9 +48,11 @@ function onPageLoad() {
 }
 
 function handleDelete(contactId) {
+    const username = getCookie("username");
+    console.log(`Trying to delete ${username} ${contactId}`);
     const data =
     {
-        "username" : this.username,
+        "username" : username,
         "contactId" : contactId
     }
 
