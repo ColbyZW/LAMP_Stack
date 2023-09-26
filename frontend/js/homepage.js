@@ -48,7 +48,23 @@ function onPageLoad() {
 }
 
 function handleDelete(contactId) {
-    console.log(contactId);
+    const data =
+    {
+        "username" : this.username,
+        "contactId" : contactId
+    }
+
+    const payload = JSON.stringify(data);
+
+    function handleResponse(responseText){
+        if(responseText.code === 500)
+        {
+            console.log("Unable to delete");
+        }
+
+    }
+
+    getRequest("/backend/DeleteContact.php", payload, handleResponse)
 }
 
 function handleEdit(contactId) {
