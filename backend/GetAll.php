@@ -30,7 +30,7 @@
                 . '"contactName":' . '"' . $row["name"] . '"' . ","
                 . '"contactEmail":' . '"' . $row["email"] . '"'  . ","
                 . '"contactPhoneNumber":' . '"' . $row["phone"] . '"' . ","
-                . '"uuid"' . '"' . $row["uuid"] . '"'
+                . '"uuid":' . '"' . $row["uuid"] . '"'
                 . '}';
         }
 
