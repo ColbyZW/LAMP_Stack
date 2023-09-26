@@ -11,7 +11,27 @@ function onPageLoad() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
-        console.log(response);
+        if (response.code === 200) {
+            for (const result of response.results) {
+                const newRow = document.createElement("tr");
+                const name = document.createElement("td");
+                const email = document.createElement("td");
+                const number = document.createElement("td");
+                const options = document.createElement("td");
+
+                name.innerHTML = result.contactName;
+                email.innerHTML = result.contactEmail;
+                number.innerHTML = result.contactPhoneNumber;
+                options.innerHTML = result.uuid;
+
+                newRow.append(name);
+                newRow.append(number);
+                newRow.append(email);
+                newRow.append(options);
+
+
+            }
+        }
         if (response.code === 500) {
             const errorRow = document.createElement("tr");
             const errorMessage = document.createElement("td");
