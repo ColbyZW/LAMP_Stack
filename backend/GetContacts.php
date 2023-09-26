@@ -10,11 +10,11 @@
 
     if(($conn -> connect_error) || ($userIDconn -> connect_error))
     {
-        returnWithError("Conn ran into connect error, tell Hyrum to do something about this");
+        returnWithError("Conn ran into connect error");
     }
     else
     {
-        $usIDsrch = $userIDconn->prepare("SELECT user_id FROM users WHERE username=?");
+        $usIDsrch = $userIDconn->prepare("SELECT id FROM users WHERE username=?");
         $usIDsrch->bind_param("s", $inData["username"]);
         $usIDsrch->execute();
         $usID = $usIDsrch->get_result();
@@ -24,7 +24,7 @@
 			returnWithError("Username not found");
 		}
 
-        $stmt = $conn->prepare("SELECT name,email,phone FROM contact_info WHERE user_id=?"); //where UserID is the id we got from this 
+        $stmt = $conn->prepare("SELECT name,email,phone FROM contact_info WHERE uuid=?"); //where UserID is the id we got from this 
         $stmt->bind_param("i", $usID);
         $stmt->execute();
         $result = $stmt->get_result();
