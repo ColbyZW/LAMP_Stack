@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
     <script type="text/javascript" src="../js/md5.js"></script>
     <script type="text/javascript" src="../js/utility.js"></script>
-    <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <title>Homepage</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            onPageLoad();
+        }, false);
+    </script>
+    <title>Login</title>
 </head>
 <body class="vh-100">
     <div class="d-flex mx-auto flex-column justify-content-center w-50 h-100">
@@ -30,13 +36,16 @@
                     <label for="passwordInput" class="form-label">Password</label>
                     <input required type="password" class="form-control" id="passwordInput">
                     <div class="text-danger" id="passwordValidation"></div>
-                    <div id="passwordHelp" class="form-text">Passwords are case-sensitive</div>
+                    <div id="passwordHelp" class="form-text"><em>Passwords are case-sensitive</em></div>
                 </div>
+
+                <div class="text-center text-danger" id="errorText"></div>
 
                 <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="handleLogin()">Login</button>
 
-                <div class="text-center">Need to make an account? <a href="./registration.html">Register here</a></div>
+                <div class="text-center">Need to make an account? <a href="./registration.html">Register here</a>
             </div>
+
         </div>
 
     </div>

@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/register.js"></script>
     <script type="text/javascript" src="../js/md5.js"></script>
     <script type="text/javascript" src="../js/utility.js"></script>
-    <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <title>Registration</title>
 </head>
@@ -30,7 +31,7 @@
                     <label for="passwordInput" class="form-label">Password</label>
                     <input required type="password" class="form-control" id="passwordInput">
                     <div class="text-danger" id="passwordValidation"></div>
-                    <div id="passwordHelp" class="form-text">Passwords are case-sensitive</div>
+                    <div id="passwordHelp" class="form-text"><em>Passwords are case-sensitive</em></div>
                 </div>
 
                 <!-- Confirm Password -->
@@ -39,6 +40,8 @@
                     <input required type="password" class="form-control" id="confirmPasswordInput">
                     <div class="text-danger" id="confirmPasswordValidation"></div>
                 </div>
+
+                <div class="text-center text-danger" id="errorText"></div>
 
                 <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="handleRegister()">Register</button>
 
@@ -49,4 +52,3 @@
     </div>
 </body>
 </html>
-
