@@ -22,7 +22,7 @@
 		{
             if($searchCount > 0)
             {
-				$searchResults .= ";";
+				$searchResults .= "";
 			}
 			$searchCount++;
 			$searchResults .= 
