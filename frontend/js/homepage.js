@@ -47,6 +47,14 @@ function onPageLoad() {
     getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
 }
 
+function handleDelete(contactId) {
+    console.log(contactId);
+}
+
+function handleEdit(contactId) {
+    console.log(contactId);
+}
+
 function addContact() {
     const contactName = document.getElementById("contactName").value;
     const contactNumber = document.getElementById("contactNumber").value;
