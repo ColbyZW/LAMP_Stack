@@ -29,7 +29,7 @@ function onPageLoad() {
                 newRow.append(email);
                 newRow.append(options);
 
-
+                tableBody.append(newRow);
             }
         }
         if (response.code === 500) {
