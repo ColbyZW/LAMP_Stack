@@ -1,31 +1,20 @@
 <?php
 
-    $inData = getRequestInfo();
+    $inData = $_GET["username"];
 
     $searchCount = 0;
     $searchResults = "";
 
-    $userIDconn = new mysqli("localhost", "root", "SPL-16P@ss", "COP4331"); // have to hook this one up in 
     $conn = new mysqli("localhost", "root", "SPL-16P@ss", "COP4331");//not sure what to put in here
 
-    if(($conn -> connect_error) || ($userIDconn -> connect_error))
+    if($conn -> connect_error)
     {
         returnWithError("Conn ran into connect error");
     }
     else
     {
-        $usIDsrch = $userIDconn->prepare("SELECT id FROM users WHERE username=?");
-        $usIDsrch->bind_param("s", $inData["username"]);
-        $usIDsrch->execute();
-        $usID = $usIDsrch->get_result();
-
-        if( ($row = $usID->fetch_assoc()) == false  ) //can I do that?
-		{
-			returnWithError("Username not found");
-		}
-
-        $stmt = $conn->prepare("SELECT name,email,phone FROM contact_info WHERE uuid=?"); //where UserID is the id we got from this 
-        $stmt->bind_param("i", $usID);
+        $stmt = $conn->prepare("SELECT name,email,phone FROM contact_info WHERE username=?"); //where UserID is the id we got from this 
+        $stmt->bind_param("s", $inData);
         $stmt->execute();
         $result = $stmt->get_result();
 
