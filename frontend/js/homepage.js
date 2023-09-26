@@ -62,7 +62,9 @@ function handleDelete(contactId) {
         if(responseText.code === 200)
         {
             //refresh el browser-o
+            setTimeout(function(){
             location.reload();
+            }, 3000);
         }
         if(responseText.code === 500)
         {
