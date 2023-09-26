@@ -29,7 +29,7 @@
                 '{' 
                 . '"contactName":' . '"' . $row["name"] . '"' . ","
                 . '"contactEmail":' . '"' . $row["email"] . '"'  . ","
-                . '"contactPhoneNumber":' . '"' . $row["phone"] . '"' . ","
+                . '"contactPhoneNumber":' . '"' . $row["phone"] . '"'
                 . '}';
         }
 
