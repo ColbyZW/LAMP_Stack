@@ -22,7 +22,7 @@
 		{
             if($searchCount > 0)
             {
-				$searchResults .= "";
+				$searchResults .= ",";
 			}
 			$searchCount++;
 			$searchResults .= 
@@ -30,7 +30,7 @@
                 . '"contactName":' . '"' . $row["name"] . '"' . ","
                 . '"contactEmail":' . '"' . $row["email"] . '"'  . ","
                 . '"contactPhoneNumber":' . '"' . $row["phone"] . '"' . ","
-                . '},';
+                . '}';
         }
 
         if($searchCount > 0)
