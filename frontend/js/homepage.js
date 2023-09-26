@@ -34,9 +34,12 @@ function addContact() {
     const numberError = document.getElementById("phoneNumberValidation");
     const emailError = document.getElementById("emailValidation");
 
+    const errorText = document.getElementById("errorText");
+
     nameError.textContent = "";
     numberError.textContent = "";
     emailError.textContent = "";
+    errorText.textContent = "";
 
     if (contactName === "") {
         nameError.textContent = "Please enter a name";
@@ -60,6 +63,26 @@ function addContact() {
     if (emailError.textContent != "" || numberError.textContent != "" || nameError.textContent != "") {
         return;
     }
+
+    const cookie = getCookie("username");
+
+    const data = {
+        "username": cookie, 
+        "contactName": contactName,
+        "contactEmail": contactEmail,
+        "contactNumber": contactNumber
+    }
+
+    const payload = JSON.stringify(data);
+
+    function handleResponse(responseText) {
+        const response = JSON.parse(responseText);
+        if (response.code === 500) {
+            errorText.textContent = "Unable to reach the server";
+        }
+    }
+
+    sendRequest("/backend/AddContact.php", payload, handleResponse);
 
 }
 
