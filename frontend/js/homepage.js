@@ -11,6 +11,7 @@ function onPageLoad() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
+        console.log(response);
         if (response.code === 500) {
             const errorRow = document.createElement("tr");
             const errorMessage = document.createElement("td");
