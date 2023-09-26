@@ -26,11 +26,11 @@
 			}
 			$searchCount++;
 			$searchResults .= 
-                '"{' 
+                '{' 
                 . "contactName:" . $row["name"] . ","
                 . "contactEmail:". $row["email"]  . ","
                 . "contactPhoneNumber:" . $row["phone"] . ","
-                . '}"';
+                . '},';
         }
 
         if($searchCount > 0)
@@ -70,7 +70,7 @@
 	
 	function returnWithInfo( $searchResults )
 	{
-		$retValue = '{"results":[' . $searchResults . ']}';
+		$retValue = '{"results":[' . $searchResults . '], "code": 200}';
 		sendResultInfoAsJson( $retValue );
 	}
 ?>
