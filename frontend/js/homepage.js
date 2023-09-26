@@ -11,7 +11,28 @@ function onPageLoad() {
 
     function handleResponse (responseText) {
         const response = JSON.parse(responseText);
-        console.log(response);
+        if (response.code === 200) {
+            for (const result of response.results) {
+                const newRow = document.createElement("tr");
+                const name = document.createElement("td");
+                const email = document.createElement("td");
+                const number = document.createElement("td");
+                const options = document.createElement("td");
+
+                name.innerHTML = result.contactName;
+                email.innerHTML = result.contactEmail;
+                number.innerHTML = result.contactPhoneNumber;
+                options.innerHTML = `<button type="button" value="${result.uuid}" onClick="handleDelete(this.value)" class="btn btn-danger">Delete Contact</button>
+                                     <button type="button" value="${result.uuid}" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
+
+                newRow.append(name);
+                newRow.append(number);
+                newRow.append(email);
+                newRow.append(options);
+
+                tableBody.append(newRow);
+            }
+        }
         if (response.code === 500) {
             const errorRow = document.createElement("tr");
             const errorMessage = document.createElement("td");
@@ -24,6 +45,14 @@ function onPageLoad() {
     }
 
     getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
+}
+
+function handleDelete(contactId) {
+    console.log(contactId);
+}
+
+function handleEdit(contactId) {
+    console.log(contactId);
 }
 
 function addContact() {
