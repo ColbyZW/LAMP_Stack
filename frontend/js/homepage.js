@@ -71,7 +71,7 @@ function handleDelete(contactId) {
 
     }
 
-    getRequest("/backend/DeleteContact.php", payload, handleResponse)
+    sendRequest("/backend/DeleteContact.php", payload, handleResponse)
 }
 
 function handleEdit(contactId) {
