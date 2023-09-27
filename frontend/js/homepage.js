@@ -1,3 +1,5 @@
+const contactMap = new Map();
+
 function onPageLoad() {
     const tableBody = document.getElementById("contactTable");
     const tableTitle = document.getElementById("tableBanner");
@@ -18,12 +20,13 @@ function onPageLoad() {
                 const email = document.createElement("td");
                 const number = document.createElement("td");
                 const options = document.createElement("td");
+                contactMap.set(result.uuid, result);
 
                 name.innerHTML = result.contactName;
                 email.innerHTML = result.contactEmail;
                 number.innerHTML = result.contactPhoneNumber;
                 options.innerHTML = `<button type="button" value="${result.uuid}" onClick="handleDelete(this.value)" class="btn btn-danger">Delete Contact</button>
-                                     <button type="button" value="\"${JSON.stringify(result)}\"" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
+                                     <button type="button" value="${result.uuid}" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
 
                 newRow.append(name);
                 newRow.append(number);
@@ -49,7 +52,6 @@ function onPageLoad() {
 
 function handleDelete(contactId) {
     const username = getCookie("username");
-    console.log(`Trying to delete ${username} ${contactId}`);
     const data =
     {
         "username" : username,
@@ -62,6 +64,7 @@ function handleDelete(contactId) {
         const response = JSON.parse(responseText);
         if(response.code === 200)
         {
+            contactMap.delete(contactId);
             //refresh el browser-o
             location.reload();
         }
@@ -76,8 +79,8 @@ function handleDelete(contactId) {
 }
 
 // Opens the editing modal
-function handleEdit(obj) {
-    const contact = JSON.parse(obj);
+function handleEdit(contactId) {
+    const contact = contactMap.get(contactId);
     const modalButton = document.getElementById("editSubmit");
     modalButton.value = contact.contactId;
 
