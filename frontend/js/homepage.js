@@ -81,13 +81,12 @@ function handleDelete(contactId) {
 // Opens the editing modal
 function handleEdit(contactId) {
     const contact = contactMap.get(contactId);
-    console.log(contact);
     const modalButton = document.getElementById("editSubmit");
-    modalButton.value = contact.contactId;
+    modalButton.value = contact.uuid;
 
     document.getElementById("editContactName").value = contact.contactName;
     document.getElementById("editContactEmail").value = contact.contactEmail;
-    document.getElementById("editContactPhoneNumber").value = contact.contactPhoneNumber;
+    document.getElementById("editContactNumber").value = contact.contactPhoneNumber;
 }
 
 function addContact() {
