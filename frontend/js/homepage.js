@@ -50,6 +50,7 @@ function onPageLoad() {
     getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
 }
 
+// Handles deleting a contact
 function handleDelete(contactId) {
     const username = getCookie("username");
     const data =
@@ -68,11 +69,6 @@ function handleDelete(contactId) {
             //refresh el browser-o
             location.reload();
         }
-        if(response.code === 500)
-        {
-            console.log("Unable to delete");
-        }
-
     }
 
     sendRequest("/backend/DeleteContact.php", payload, handleResponse)
@@ -89,6 +85,7 @@ function handleEdit(contactId) {
     document.getElementById("editContactNumber").value = contact.contactPhoneNumber;
 }
 
+// Handles submitting the edited contact
 function editContact(contactId) {
     const contactName = document.getElementById("editContactName").value;
     const contactNumber = document.getElementById("editContactNumber").value;
@@ -153,6 +150,7 @@ function editContact(contactId) {
     sendRequest("/backend/EditContact.php", payload, handleResponse);
 }
 
+// Handles adding a new contact
 function addContact() {
     const contactName = document.getElementById("contactName").value;
     const contactNumber = document.getElementById("contactNumber").value;
@@ -217,6 +215,7 @@ function addContact() {
 
 }
 
+// Handles logging out
 function handleLogout() {
     document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     window.location.href = "index.html"
