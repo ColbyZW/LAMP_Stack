@@ -81,6 +81,7 @@ function handleDelete(contactId) {
 // Opens the editing modal
 function handleEdit(contactId) {
     const contact = contactMap.get(contactId);
+    console.log(contact);
     const modalButton = document.getElementById("editSubmit");
     modalButton.value = contact.contactId;
 
