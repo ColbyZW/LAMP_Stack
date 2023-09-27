@@ -1,3 +1,5 @@
+const contactMap = new Map();
+
 function onPageLoad() {
     const tableBody = document.getElementById("contactTable");
     const tableTitle = document.getElementById("tableBanner");
@@ -18,12 +20,13 @@ function onPageLoad() {
                 const email = document.createElement("td");
                 const number = document.createElement("td");
                 const options = document.createElement("td");
+                contactMap.set(result.uuid, result);
 
                 name.innerHTML = result.contactName;
                 email.innerHTML = result.contactEmail;
                 number.innerHTML = result.contactPhoneNumber;
                 options.innerHTML = `<button type="button" value="${result.uuid}" onClick="handleDelete(this.value)" class="btn btn-danger">Delete Contact</button>
-                                     <button type="button" value="${result.uuid}" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
+                                     <button type="button" value="${result.uuid}" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
 
                 newRow.append(name);
                 newRow.append(number);
@@ -47,9 +50,9 @@ function onPageLoad() {
     getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
 }
 
+// Handles deleting a contact
 function handleDelete(contactId) {
     const username = getCookie("username");
-    console.log(`Trying to delete ${username} ${contactId}`);
     const data =
     {
         "username" : username,
@@ -62,23 +65,92 @@ function handleDelete(contactId) {
         const response = JSON.parse(responseText);
         if(response.code === 200)
         {
+            contactMap.delete(contactId);
             //refresh el browser-o
             location.reload();
         }
-        if(response.code === 500)
-        {
-            console.log("Unable to delete");
-        }
-
     }
 
     sendRequest("/backend/DeleteContact.php", payload, handleResponse)
 }
 
+// Opens the editing modal
 function handleEdit(contactId) {
-    console.log(contactId);
+    const contact = contactMap.get(contactId);
+    const modalButton = document.getElementById("editSubmit");
+    modalButton.value = contact.uuid;
+
+    document.getElementById("editContactName").value = contact.contactName;
+    document.getElementById("editContactEmail").value = contact.contactEmail;
+    document.getElementById("editContactNumber").value = contact.contactPhoneNumber;
 }
 
+// Handles submitting the edited contact
+function editContact(contactId) {
+    const contactName = document.getElementById("editContactName").value;
+    const contactNumber = document.getElementById("editContactNumber").value;
+    const contactEmail = document.getElementById("editContactEmail").value;
+
+    const nameError = document.getElementById("editNameValidation");
+    const numberError = document.getElementById("editPhoneNumberValidation");
+    const emailError = document.getElementById("editEmailValidation");
+
+    const errorText = document.getElementById("editErrorText");
+
+    nameError.textContent = "";
+    numberError.textContent = "";
+    emailError.textContent = "";
+    errorText.textContent = "";
+
+    if (contactName === "") {
+        nameError.textContent = "Please enter a name";
+    }
+    if (contactNumber === "") {
+        numberError.textContent = "Please enter a phone number";
+    }
+    if (parseInt(contactNumber) === NaN) {
+        numberError.textContent = "Please enter a phone number with no dashes";
+    }
+    if (contactNumber.length != 10) {
+        numberError.textContent = "Please enter a valid phone number";
+    }
+    if (contactEmail === "") {
+        emailError.textContent = "Please enter an email";
+    }
+    if (!contactEmail.includes("@") && !contactEmail.includes(".")) {
+        emailError.textContent = "Please enter a valid email";
+    }
+
+    if (emailError.textContent != "" || numberError.textContent != "" || nameError.textContent != "") {
+        return;
+    }
+
+    const cookie = getCookie("username");
+
+    const data = {
+        "username": cookie, 
+        "contactName": contactName,
+        "contactEmail": contactEmail,
+        "contactPhoneNumber": parseInt(contactNumber),
+        "contactId": contactId
+    }
+
+    const payload = JSON.stringify(data);
+
+    function handleResponse(responseText) {
+        const response = JSON.parse(responseText);
+        if (response.code === 200) {
+            location.reload();
+        }
+        if (response.code === 500) {
+            errorText.textContent = "Unable to reach the server";
+        }
+    }
+
+    sendRequest("/backend/EditContact.php", payload, handleResponse);
+}
+
+// Handles adding a new contact
 function addContact() {
     const contactName = document.getElementById("contactName").value;
     const contactNumber = document.getElementById("contactNumber").value;
@@ -131,6 +203,9 @@ function addContact() {
 
     function handleResponse(responseText) {
         const response = JSON.parse(responseText);
+        if (response.code === 200) {
+            location.reload();
+        }
         if (response.code === 500) {
             errorText.textContent = "Unable to reach the server";
         }
@@ -140,6 +215,7 @@ function addContact() {
 
 }
 
+// Handles logging out
 function handleLogout() {
     document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     window.location.href = "index.html"

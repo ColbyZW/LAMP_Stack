@@ -8,7 +8,7 @@
     }
 
     $stmt = $sqlConn->prepare("UPDATE contact_info SET name=?, email=?, phone=? WHERE username=? AND uuid=?");
-    $stmt->bind_param("ssss", $inData["contactName"], $inData["contactEmail"], $inData["contactPhoneNumber"], $inData["username"], $inData["contactId"]);
+    $stmt->bind_param("sssss", $inData["contactName"], $inData["contactEmail"], $inData["contactPhoneNumber"], $inData["username"], $inData["contactId"]);
     $stmt->execute();
     $result = $stmt->get_result();
 

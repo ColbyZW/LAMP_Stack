@@ -18,6 +18,48 @@
     <title>Main Page</title>
 </head>
 <body class="vh-100">
+    <!-- Edit Contact Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contact Name -->
+                        <div class="mb-3">
+                            <label for="contactName" class="form-label">Contact Name</label>
+                            <input required type="text" class="form-control" id="editContactName">
+                            <div class="text-danger" id="editNameValidation"></div>
+                        </div>
+
+                        <!-- Contact Phone Number -->
+                        <div class="mb-3">
+                            <label for="contactNumber" class="form-label">Contact Phone Number</label>
+                            <input required type="text" class="form-control" id="editContactNumber">
+                            <div class="text-danger" id="editPhoneNumberValidation"></div>
+                        </div>
+
+                        <!-- Contact Email Address -->
+                        <div class="mb-3">
+                            <label for="contactEmail" class="form-label">Contact Email Address</label>
+                            <input required type="email" class="form-control" id="editContactEmail">
+                            <div class="text-danger" id="editEmailValidation"></div>
+                        </div>
+
+                        <div class="text-center text-danger" id="editErrorText"></div>
+
+                        <button type="submit" id="editSubmit" class="btn btn-primary mx-auto w-50 my-3" onclick="editContact(this.value)">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     <!-- Create New Contact Modal -->
     <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
