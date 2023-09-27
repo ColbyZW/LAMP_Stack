@@ -48,7 +48,31 @@ function onPageLoad() {
 }
 
 function handleDelete(contactId) {
-    console.log(contactId);
+    const username = getCookie("username");
+    console.log(`Trying to delete ${username} ${contactId}`);
+    const data =
+    {
+        "username" : username,
+        "contactId" : contactId
+    }
+
+    const payload = JSON.stringify(data);
+
+    function handleResponse(responseText){
+        const response = JSON.parse(responseText);
+        if(response.code === 200)
+        {
+            //refresh el browser-o
+            location.reload();
+        }
+        if(response.code === 500)
+        {
+            console.log("Unable to delete");
+        }
+
+    }
+
+    sendRequest("/backend/DeleteContact.php", payload, handleResponse)
 }
 
 function handleEdit(contactId) {
