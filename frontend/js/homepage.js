@@ -134,7 +134,7 @@ function editContact(contactId) {
         "username": cookie, 
         "contactName": contactName,
         "contactEmail": contactEmail,
-        "contactPhoneNumber": contactNumber,
+        "contactPhoneNumber": parseInt(contactNumber),
         "contactId": contactId
     }
 
