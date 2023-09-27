@@ -135,7 +135,7 @@ function editContact(contactId) {
         "contactName": contactName,
         "contactEmail": contactEmail,
         "contactNumber": contactNumber,
-        "uuid": contactId
+        "contactId": contactId
     }
 
     const payload = JSON.stringify(data);
