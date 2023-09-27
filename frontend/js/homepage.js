@@ -23,7 +23,7 @@ function onPageLoad() {
                 email.innerHTML = result.contactEmail;
                 number.innerHTML = result.contactPhoneNumber;
                 options.innerHTML = `<button type="button" value="${result.uuid}" onClick="handleDelete(this.value)" class="btn btn-danger">Delete Contact</button>
-                                     <button type="button" value="${result.uuid}" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value, ${result.contactName}, ${result.contactEmail}, ${result.contactPhoneNumber})" class="btn btn-secondary">Edit Contact</button>`;
+                                     <button type="button" value="${result}" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
 
                 newRow.append(name);
                 newRow.append(number);
@@ -76,13 +76,13 @@ function handleDelete(contactId) {
 }
 
 // Opens the editing modal
-function handleEdit(contactId, contactName, contactEmail, contactPhoneNumber) {
+function handleEdit(contact) {
     const modalButton = document.getElementById("editSubmit");
-    modalButton.value = contactId;
+    modalButton.value = contact.contactId;
 
-    document.getElementById("editContactName").value = contactName;
-    document.getElementById("editContactEmail").value = contactEmail;
-    document.getElementById("editContactPhoneNumber").value = contactPhoneNumber;
+    document.getElementById("editContactName").value = contact.contactName;
+    document.getElementById("editContactEmail").value = contact.contactEmail;
+    document.getElementById("editContactPhoneNumber").value = contact.contactPhoneNumber;
 }
 
 function addContact() {
