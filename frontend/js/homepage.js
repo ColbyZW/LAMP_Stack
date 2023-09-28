@@ -3,7 +3,7 @@ const contacts = [];
 
 function createTable(responseText) {
     // Clear the old table
-    for (const row in contacts) {
+    for (const row of contacts) {
         row.remove();
     }
 
