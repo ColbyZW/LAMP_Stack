@@ -13,7 +13,7 @@
     $result = $stmt->get_result();
     $stmt->close();
 
-    $stmt = $conn->prepare("SELECT name,email,phone,uuid FROM contact_info WHERE username=?"); //where UserID is the id we got from this 
+    $stmt = $sqlConn->prepare("SELECT name,email,phone,uuid FROM contact_info WHERE username=?"); //where UserID is the id we got from this 
     $stmt->bind_param("s", $inData["username"]);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -42,8 +42,8 @@
     {
         returnWithInfo("");
     }
-    
     $stmt->close();
+    $sqlConn->close();   
 
 	function sendResultInfoAsJson( $obj )
 	{
@@ -67,7 +67,4 @@
         header('Content-Type: application/json');
         echo $obj;
     }
-
-    $stmt->close();
-    $sqlConn->close();
 ?>

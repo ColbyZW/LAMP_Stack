@@ -13,7 +13,7 @@
     $stmt->execute();
     $stmt->close();
 
-    $stmt = $conn->prepare("SELECT name,email,phone,uuid FROM contact_info WHERE username=?"); //where UserID is the id we got from this 
+    $stmt = $sqlConn->prepare("SELECT name,email,phone,uuid FROM contact_info WHERE username=?"); //where UserID is the id we got from this 
     $stmt->bind_param("s", $inData["username"]);
     $stmt->execute();
     $result = $stmt->get_result();
