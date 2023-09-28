@@ -11,8 +11,57 @@
     $stmt->bind_param("sssss", $inData["contactName"], $inData["contactEmail"], $inData["contactPhoneNumber"], $inData["username"], $inData["contactId"]);
     $stmt->execute();
     $result = $stmt->get_result();
+    $stmt->close();
 
-    sendJson('{"message": "Successfully updated contact", "code": 200}');
+    $stmt = $sqlConn->prepare("SELECT name,email,phone,uuid FROM contact_info WHERE username=?"); //where UserID is the id we got from this 
+    $stmt->bind_param("s", $inData["username"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while( $row = $result->fetch_assoc()  )
+    {
+        if($searchCount > 0)
+        {
+            $searchResults .= ",";
+        }
+        $searchCount++;
+        $searchResults .= 
+            '{' 
+            . '"contactName":' . '"' . $row["name"] . '"' . ","
+            . '"contactEmail":' . '"' . $row["email"] . '"'  . ","
+            . '"contactPhoneNumber":' . '"' . $row["phone"] . '"' . ","
+            . '"uuid":' . '"' . $row["uuid"] . '"'
+            . '}';
+    }
+
+    if($searchCount > 0)
+    {
+        returnWithInfo($searchResults);
+    }
+    else
+    {
+        returnWithInfo("");
+    }
+    $stmt->close();
+    $sqlConn->close();   
+
+	function sendResultInfoAsJson( $obj )
+	{
+		header('Content-Type: application/json');
+		echo $obj;
+	}
+	
+	function returnWithError( $err )
+	{
+		$retValue = '{Error: ' . $err . '"}';
+		sendResultInfoAsJson( $retValue );
+	}
+	
+	function returnWithInfo( $searchResults )
+	{
+		$retValue = '{"results":[' . $searchResults . '], "code": 200}';
+		sendResultInfoAsJson( $retValue );
+	}
 
     function sendJson ($obj) {
         header('Content-Type: application/json');
