@@ -87,7 +87,7 @@ function handleDelete(contactId) {
         {
             contactMap.delete(contactId);
             //refresh el browser-o
-            location.reload();
+            createTable(responseText);
         }
     }
 
@@ -160,7 +160,7 @@ function editContact(contactId) {
     function handleResponse(responseText) {
         const response = JSON.parse(responseText);
         if (response.code === 200) {
-            location.reload();
+            createTable(responseText);
         }
         if (response.code === 500) {
             errorText.textContent = "Unable to reach the server";

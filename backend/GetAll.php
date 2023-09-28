@@ -40,7 +40,7 @@
         }
         else
         {
-            returnWithError("User has no contacts");
+            returnWithInfo("");
         }
         
         $stmt->close();
