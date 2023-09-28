@@ -1,7 +1,50 @@
 const contactMap = new Map();
+const contacts = [];
+
+function createTable(responseText) {
+    // Clear the old table
+    for (const row in contacts) {
+        row.remove();
+    }
+
+    const tableBody = document.getElementById("contactTable");
+    const response = JSON.parse(responseText);
+    if (response.code === 200) {
+        for (const result of response.results) {
+            const newRow = document.createElement("tr");
+            const name = document.createElement("td");
+            const email = document.createElement("td");
+            const number = document.createElement("td");
+            const options = document.createElement("td");
+            contactMap.set(result.uuid, result);
+
+            name.innerHTML = result.contactName;
+            email.innerHTML = result.contactEmail;
+            number.innerHTML = result.contactPhoneNumber;
+            options.innerHTML = `<button type="button" value="${result.uuid}" onClick="handleDelete(this.value)" class="btn btn-danger">Delete Contact</button>
+                                    <button type="button" value="${result.uuid}" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
+
+            newRow.append(name);
+            newRow.append(number);
+            newRow.append(email);
+            newRow.append(options);
+
+            tableBody.append(newRow);
+            contacts.push(newRow);
+        }
+    }
+    if (response.code === 500) {
+        const errorRow = document.createElement("tr");
+        const errorMessage = document.createElement("td");
+        errorMessage.colSpan = "4";
+        errorMessage.innerHTML = response.message;
+        errorMessage.className = "text-danger text-center";
+        errorRow.append(errorMessage);
+        tableBody.append(errorRow);
+    }
+}
 
 function onPageLoad() {
-    const tableBody = document.getElementById("contactTable");
     const tableTitle = document.getElementById("tableBanner");
     const cookie = getCookie("username");
 
@@ -11,43 +54,20 @@ function onPageLoad() {
         tableTitle.innerText = `Viewing ${cookie}\'s Contacts`;
     }
 
-    function handleResponse (responseText) {
-        const response = JSON.parse(responseText);
-        if (response.code === 200) {
-            for (const result of response.results) {
-                const newRow = document.createElement("tr");
-                const name = document.createElement("td");
-                const email = document.createElement("td");
-                const number = document.createElement("td");
-                const options = document.createElement("td");
-                contactMap.set(result.uuid, result);
+    getRequest("/backend/GetAll.php", `username=${cookie}`, createTable);
+}
 
-                name.innerHTML = result.contactName;
-                email.innerHTML = result.contactEmail;
-                number.innerHTML = result.contactPhoneNumber;
-                options.innerHTML = `<button type="button" value="${result.uuid}" onClick="handleDelete(this.value)" class="btn btn-danger">Delete Contact</button>
-                                     <button type="button" value="${result.uuid}" data-toggle="modal" data-target="#editModal" onClick="handleEdit(this.value)" class="btn btn-secondary">Edit Contact</button>`;
-
-                newRow.append(name);
-                newRow.append(number);
-                newRow.append(email);
-                newRow.append(options);
-
-                tableBody.append(newRow);
-            }
-        }
-        if (response.code === 500) {
-            const errorRow = document.createElement("tr");
-            const errorMessage = document.createElement("td");
-            errorMessage.colSpan = "4";
-            errorMessage.innerHTML = response.message;
-            errorMessage.className = "text-danger text-center";
-            errorRow.append(errorMessage);
-            tableBody.append(errorRow);
-        }
+function handleSearch() {
+    const searchQuery = document.getElementById("search").value;
+    const cookie = getCookie("username");
+    const data = {
+        "searchQuery": searchQuery,
+        "username": cookie
     }
 
-    getRequest("/backend/GetAll.php", `username=${cookie}`, handleResponse);
+    const payload = JSON.stringify(data);
+
+    sendRequest("/backend/SearchContact.php", payload, createTable);
 }
 
 // Handles deleting a contact
