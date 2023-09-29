@@ -137,7 +137,7 @@ function editContact(contactId) {
     if (contactEmail === "") {
         emailError.textContent = "Please enter an email";
     }
-    if (!contactEmail.includes("@") && !contactEmail.includes(".")) {
+    if (!contactEmail.includes("@") || !contactEmail.includes(".")) {
         emailError.textContent = "Please enter a valid email";
     }
 
@@ -202,7 +202,7 @@ function addContact() {
     if (contactEmail === "") {
         emailError.textContent = "Please enter an email";
     }
-    if (!contactEmail.includes("@") && !contactEmail.includes(".")) {
+    if (!contactEmail.includes("@") || !contactEmail.includes(".")) {
         emailError.textContent = "Please enter a valid email";
     }
 
