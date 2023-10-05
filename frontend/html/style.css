@@ -1,0 +1,12 @@
+<style>
+#gradient_1 {
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, red , yellow);
+}
+
+body {
+    <h1>Linear Gradient - Diagonal</h1>
+    <p>This linear gradient starts red at top left, transitioning to yellow (at bottom right):</p>
+
+    <div id="gradient_1"></div>
+}
