@@ -4,11 +4,11 @@
 }
 
 .background-properties {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto%;
   background-image: url('halloween.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
 }
 /*
 body {
