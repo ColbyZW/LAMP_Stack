@@ -1,9 +1,8 @@
 #gradient_1 {
-  height: 1080px;
   background-color: rgb(131, 96, 195); /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, rgb(131, 96, 195), rgb(46, 191, 145));
 }
 
 body {
-    background-color: rgb(131, 96, 195);
+    id="gradient_1"
 }
