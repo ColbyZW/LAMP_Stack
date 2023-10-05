@@ -8,7 +8,7 @@
   height: auto;
   background-image: url('halloween.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 /*
 body {
