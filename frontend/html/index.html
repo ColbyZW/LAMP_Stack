@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
     <script type="text/javascript" src="../js/md5.js"></script>
     <script type="text/javascript" src="../js/utility.js"></script>
-    <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            onPageLoad();
+        }, false);
+    </script>
     <title>Login</title>
 </head>
 <body class="vh-100">
@@ -16,7 +22,7 @@
         <!-- Login Card -->
         <div class="card rounded-sm border border-secondary">
             <div class="card-body d-flex flex-column justify-content-center">
-                <h5 class="text-center my-3 card-title">Contact Manager Account Creation</h5> 
+                <h5 class="text-center my-3 card-title">Contact Manager Login</h5> 
 
                 <!-- Username -->
                 <div class="mb-3">
@@ -35,7 +41,7 @@
 
                 <div class="text-center text-danger" id="errorText"></div>
 
-                <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="handleLogin()">Register</button>
+                <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="handleLogin()">Login</button>
 
                 <div class="text-center">Need to make an account? <a href="./registration.html">Register here</a>
             </div>
