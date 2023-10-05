@@ -4,5 +4,5 @@
 }
 
 body {
-    id="gradient_1"
+    background-image: linear-gradient(to right, rgb(131, 96, 195), rgb(46, 191, 145));
 }
