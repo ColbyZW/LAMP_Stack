@@ -4,7 +4,7 @@
 }
 
 .background-properties {
-  width: 100%;
+  width: auto;
   height: auto;
   background-image: url('halloween.png');
   background-repeat: no-repeat;
