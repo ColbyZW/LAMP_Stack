@@ -2,15 +2,3 @@
   background-color: rgb(131, 96, 195); /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, rgb(131, 96, 195), rgb(46, 191, 145));
 }
-
-.background {
-  background-color: #56494C;
-}
-
-.accent-text {
-  color: #C2D3CD;
-}
-
-.accent-background {
-  background-color: #847E89;
-}
