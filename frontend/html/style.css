@@ -1,5 +1,6 @@
 <style>
 #gradient_1 {
+  height: 1080px;
   background-color: red; /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, red , yellow);
 }
