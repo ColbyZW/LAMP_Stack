@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet">
     <script type="text/javascript" src="../js/add_contact.js"></script>
     <script type="text/javascript" src="../js/utility.js"></script>
     <script type="text/javascript" src="../js/homepage.js"></script>
@@ -17,11 +18,11 @@
     </script>
     <title>Main Page</title>
 </head>
-<body class="vh-100">
+<body class="vh-100 background-image">
     <!-- Edit Contact Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content bg-light">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editModalLabel">Edit Contact</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -52,7 +53,7 @@
 
                         <div class="text-center text-danger" id="editErrorText"></div>
 
-                        <button type="submit" id="editSubmit" class="btn btn-primary mx-auto w-50 my-3" onclick="editContact(this.value)">Submit</button>
+                        <button type="submit" id="editSubmit" class="btn mx-auto w-50 my-3" onclick="editContact(this.value)">Submit</button>
                     </div>
 
                 </div>
@@ -63,7 +64,7 @@
     <!-- Create New Contact Modal -->
     <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-light">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create New Contact</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -104,7 +105,7 @@
     <div class="d-flex mx-auto flex-column justify-content-center w-75 h-100">
 
         <!-- Main Card -->
-        <div class="card rounded-sm border border-secondary">
+        <div class="bg-light card rounded-sm border border-secondary">
             <div class="card-body d-flex flex-column justify-content-center">
 
                 <div class="mb-5 d-flex w-100 align-content-center justify-content-between">
