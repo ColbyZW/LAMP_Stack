@@ -17,6 +17,7 @@ body{
   padding:0;
   overflow:hidden;
   background-color:rgb(30, 13, 94);
+  color: rgb(44, 150, 97);
   }
 
 section{
@@ -65,7 +66,7 @@ section{
 }
 
 .leaf div:nth-child(5){
-    left:85%; 
+    left:80%; 
     animation:fall 14s linear infinite ;
     animation-delay:-5s;
 }
