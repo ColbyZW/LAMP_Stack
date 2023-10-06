@@ -1,7 +1,16 @@
+function onPageLoad() {
+    const cookie = getCookie("username");
+
+    if (cookie != "") {
+        window.location.href = "homepage.html"
+    }
+}
+
 function handleLogin() {
     // Grab username and password
     const username = document.getElementById("usernameInput").value;
     const password = document.getElementById("passwordInput").value;
+
 
     // Grab the validation messages
     const userValidation = document.getElementById("usernameValidation");
