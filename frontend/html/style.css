@@ -39,7 +39,7 @@ section{
 }
 
 .leaf div:nth-child(1){
-    left:20%; 
+    left:25%; 
     animation:fall 15s linear infinite ;
     animation-delay:-2s;
 
