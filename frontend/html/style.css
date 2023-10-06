@@ -12,6 +12,11 @@
   background-position: right bottom;
 }
 
+.background-image {
+  background-image: url(fall.jpg);
+  background-size: cover;
+}
+
 .body_background{
     margin:0;
     padding:0;
