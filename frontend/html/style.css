@@ -2,3 +2,7 @@
   background-color: #EB5757; /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, #EB5757, #000000);
 }
+
+.background-image {
+  background-image: url(./fall_image.jpg);
+}
