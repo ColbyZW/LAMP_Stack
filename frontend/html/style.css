@@ -5,5 +5,5 @@
 
 .background-image {
   background-image: url(./fall_image.jpg);
-  background-size: contain;
+  background-size: cover;
 }
