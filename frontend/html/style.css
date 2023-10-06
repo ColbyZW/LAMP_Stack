@@ -3,10 +3,6 @@
   background-image: linear-gradient(to bottom right, #000000, #61045F, #AA076B 75%, #61045F, #000000);
 }
 
-.background-image {
-  background-image: url(./fall.jpg);
-  background-size: cover;
-}
 .background-properties{
   width: 100%;
   height: auto;
