@@ -12,21 +12,32 @@
     <script type="text/javascript" src="../js/utility.js"></script>
     <script type="text/javascript" src="../js/homepage.js"></script>
     <script type="text/javascript" src="../js/md5.js"></script>
+    <!--
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
             onPageLoad();
         }, false)
     </script>
+    -->
     <title>Main Page</title>
 </head>
 <body class="vh-100 background-image">
+
+    <nav class="navbar bg-transparent">
+        <b class="navbar-brand logo">
+            The Best Contact Manager Ever!!!
+        </b>
+        <li><button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button></li>
+        
+    </nav>
+
     <!-- Edit Contact Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content bg-light">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editModalLabel">Edit Contact</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close_button close_button:hover" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -54,7 +65,7 @@
 
                         <div class="text-center text-danger" id="editErrorText"></div>
 
-                        <button type="submit" id="editSubmit" class="btn mx-auto w-50 my-3" onclick="editContact(this.value)">Submit</button>
+                        <button type="submit" id="editSubmit" class="btn mx-auto w-50 my-3 submit_button submit_button:hover" onclick="editContact(this.value)">Submit</button>
                     </div>
 
                 </div>
@@ -113,15 +124,15 @@
                     <div>
                         <h5 class="text-center my-3 card-title" id="tableBanner"></h5> 
                     </div>
-                    <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end">Logout</button>
+                    <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button>
                 </div>
 
                 <div class="d-flex w-100 align-content-center justify-content-between">
                     <div class="d-flex flex-row align-content-center">
                         <input required type="text" class="form-control" id="search">
-                        <button type="button" class="btn btn-secondary" onclick="handleSearch()">Search</button>
+                        <button type="button" class="btn btn-secondary mb-2" onclick="handleSearch()">Search</button>
                     </div>
-                    <button type="button" data-toggle="modal" data-target="#createModal" class="btn btn-primary align-self-end mb-2">Create New Contact</button>
+                    <button type="button" data-toggle="modal" data-target="#createModal" class="btn btn-primary align-self-end mb-2 new_contact_button new_contact_button:hover">Create New Contact</button>
                 </div>
 
                 <!-- Contacts Table -->

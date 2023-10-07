@@ -47,6 +47,50 @@
     transition: 0.7s;
 }
 
+.logout_button {
+    background-color: #FE7126;
+    border-color: #FE7126;
+}
+
+.logout_button:hover {
+    background-color:#F04D32;
+    border-color: #F04D32;
+    transition: 0.7s;
+}
+
+.new_contact_button {
+    background-color: #197278;
+    border-color: #197278;
+}
+
+.new_contact_button:hover {
+    background-color:#283d3b;
+    border-color: #283d3b;
+    transition: 0.7s;
+}
+
+.submit_button {
+    background-color: #FFC601;
+    border-color: #FFC601;
+}
+
+.submit_button:hover {
+    background-color:#DDA33C;
+    border-color: #DDA33C;
+    transition: 0.7s;
+}
+
+.close_button {
+    background-color: #A0B19F;
+    border-color: #A0B19F;
+}
+
+.close_button:hover {
+    background-color:#9A9A9A;
+    border-color: #9A9A9A;
+    transition: 0.7s;
+}
+
 .logo {
     color: white;
     font-family: "Indie Flower";
