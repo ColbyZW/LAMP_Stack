@@ -80,12 +80,12 @@
     transition: 0.7s;
 }
 
-.close_button {
+.search_button {
     background-color: #A0B19F;
     border-color: #A0B19F;
 }
 
-.close_button:hover {
+.search_button:hover {
     background-color:#9A9A9A;
     border-color: #9A9A9A;
     transition: 0.7s;

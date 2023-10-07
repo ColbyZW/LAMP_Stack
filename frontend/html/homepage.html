@@ -27,6 +27,10 @@
         <b class="navbar-brand logo">
             The Best Contact Manager Ever!!!
         </b>
+        <li><a href="./about.html">
+            <button class="btn btn-danger align-self-end submit_button submit_button:hover">About</button>
+            </a>
+        </li>
         <li><button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button></li>
         
     </nav>
@@ -37,7 +41,7 @@
                 <div class="modal-content bg-light">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editModalLabel">Edit Contact</h5>
-                        <button type="button" class="close close_button close_button:hover" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -130,7 +134,7 @@
                 <div class="d-flex w-100 align-content-center justify-content-between">
                     <div class="d-flex flex-row align-content-center">
                         <input required type="text" class="form-control" id="search">
-                        <button type="button" class="btn btn-secondary mb-2" onclick="handleSearch()">Search</button>
+                        <button type="button" class="btn btn-secondary mb-2 search_button search_button:hover" onclick="handleSearch()">Search</button>
                     </div>
                     <button type="button" data-toggle="modal" data-target="#createModal" class="btn btn-primary align-self-end mb-2 new_contact_button new_contact_button:hover">Create New Contact</button>
                 </div>
