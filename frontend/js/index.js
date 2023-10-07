@@ -2,8 +2,7 @@ function onPageLoad() {
     const cookie = getCookie("username");
 
     if (cookie != "") {
-        transitionToPage('homepage.html')
-        //window.location.href = "homepage.html"
+        window.location.href = "homepage.html"
     }
 }
 
