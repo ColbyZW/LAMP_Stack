@@ -33,7 +33,8 @@
 }
 
 .login_card {
-    background-color: #EDDDD4; 
+    background-color: #EDDDD4;
+    background-image: linear-gradient(to bottom right, #ffffff 35%, #EDDDD4);
 }
 
 .login_button {
