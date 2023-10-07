@@ -12,12 +12,6 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share Tech">
-    
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function () {
-            onPageLoad();
-        }, false);
-    </script>
 
     <title>About</title>
 </head>
@@ -53,17 +47,16 @@
 
     <script>
         window.transitionToPage = function(href) {
-            document.querySelector('body').style.opacity = 0;
-            setTimeout(function() { 
-                window.location.href = href;
-            }, 2000);
+        document.querySelector('body').style.opacity = 0;
+        setTimeout(function() { 
+            window.location.href = href;
+        }, 2000);
         };
-    
-        document.addEventListener('DOMContentLoaded', function(event) {
-            document.querySelector('body').style.opacity = 1;
-            }
-        );
-        </script>
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        document.querySelector('body').style.opacity = 1;
+    });
+    </script>
 </body>
 </html>
 
