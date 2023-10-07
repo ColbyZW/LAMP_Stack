@@ -10,6 +10,7 @@
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
             onPageLoad();
@@ -19,7 +20,7 @@
     <title>Login</title>
 </head>
 
-<body class="vh-100 fall_background">
+<body class="vh-100 index_background">
     
     <section>
 
@@ -62,17 +63,17 @@
     </section>
 
     <nav class="navbar bg-transparent">
-        <a class="navbar-brand">
+        <b class="navbar-brand logo">
             The Best Contact Manager Ever!!!
-        </a>
-        <li><a href="about.html">About</a></li>
+        </b>
+        <li><a href="./about.html">About Us</a></li>
         <p class="navbar-text nav_text">The Best Contact Manager Ever!</p>
     </nav>
 
     <div class="d-flex mx-auto flex-column justify-content-center w-50 h-100">
 
         <!-- Login Card -->
-        <div class="card rounded-sm border border-secondary bg-light">
+        <div class="card rounded-sm border border-secondary login_card">
             <div class="card-body d-flex flex-column justify-content-center">
                 <h5 class="text-center my-3 card-title">Login</h5> 
 
@@ -93,7 +94,7 @@
 
                 <div class="text-center text-danger" id="errorText"></div>
 
-                <button type="submit" class="btn btn-primary mx-auto w-50 my-3" onclick="handleLogin()">Login</button>
+                <button type="submit" class="btn btn-primary mx-auto w-50 my-3 login_button login_button:hover" onclick="handleLogin()">Login</button>
 
                 <div class="text-center">Need to make an account? <a href="./registration.html">Register here</a>
             </div>

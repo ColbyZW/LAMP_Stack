@@ -1,9 +1,9 @@
-.gradient_1{
+.gradient_1 {
   background-color: #AA076B; /* For browsers that do not support gradients */
   background-image: linear-gradient(to bottom right, #000000, #61045F, #AA076B 75%, #61045F, #000000);
 }
 
-.background-properties{
+.background-properties {
   width: 100%;
   height: auto;
   background-image: url('halloween.png');
@@ -17,7 +17,7 @@
   background-size: cover;
 }
 
-.body_background{
+.body_background {
     margin:0;
     padding:0;
     overflow:hidden;
@@ -25,11 +25,72 @@
     color: rgb(44, 150, 97);
   }
 
-.fall_background{
+.index_background {
     height:100%;
     width:100%;
     background-image: url('fall-road-pic.jpg');
     background-size: cover;
+}
+
+.login_card {
+    background-color: #EDDDD4; 
+}
+
+.login_button {
+    background-color: #197278;
+    border-color: #000000;
+}
+
+.login_button:hover {
+    background-color:#283d3b;
+    border-color: #000000;
+    transition: 0.7s;
+}
+
+.logo {
+    color: white;
+    font-family: "Indie Flower";
+    font-size: 40px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.registration_background {
+    height:100%;
+    width:100%;
+    background-image: url('fall-road-pic.jpg');
+    background-size: cover;
+}
+
+.registration_card {
+    background-color: #EDDDD4; 
+}
+
+.register_button {
+    background-color: #197278;
+    border-color: #000000;
+}
+
+.register_button:hover {
+    background-color:#283d3b;
+    border-color: #000000;
+    transition: 0.7s;
+}
+
+a:link {
+    color: #197278 ;
+}
+
+a:visited {
+    color: #9A031E;
+}
+
+a:hover {
+    color: #283D3B;
+    transition: 0.7s;
+}
+
+a:active {
+    color: #5F0F40;
 }
 
 .leaf{
@@ -47,7 +108,7 @@
 
 .leaf div:nth-child(1){
     left:35%; 
-    animation:fall 15s linear infinite ;
+    animation:fall 15s ease infinite ;
     animation-delay:-2s;
 
 }
@@ -60,20 +121,20 @@
 
 .leaf div:nth-child(3){
     left:5%; 
-    animation:fall 20s linear infinite ;
+    animation:fall 20s ease-in infinite ;
     animation-delay:-7s;
     
 }
 
 .leaf div:nth-child(4){
     left:50%; 
-    animation:fall 18s linear infinite ; 
+    animation:fall 18s ease-in-out infinite ; 
     animation-delay:-5s;
 }
 
 .leaf div:nth-child(5){
     left:80%; 
-    animation:fall 14s linear infinite ;
+    animation:fall 14s ease-out infinite ;
     animation-delay:-5s;
 }
 
@@ -85,7 +146,7 @@
 
 .leaf div:nth-child(7){
     left:90%; 
-    animation:fall 15s linear infinite ;
+    animation:fall 15s ease-in-out infinite ;
     animation-delay:-4s;
 }
   
