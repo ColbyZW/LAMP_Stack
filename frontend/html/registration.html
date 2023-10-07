@@ -17,7 +17,7 @@
         document.querySelector('body').style.opacity = 0;
         setTimeout(function() { 
             window.location.href = href;
-        }, 1000);
+        }, 2000);
         };
 
     document.addEventListener('DOMContentLoaded', function(event) {
@@ -71,9 +71,9 @@
             <b class="navbar-brand logo">
                 The Best Contact Manager Ever!!!
             </b>
-            <a href="./index.html">
-                <button class="btn btn-danger align-self-end login_button logoin_button:hover">Login</button>
-            </a>
+            <a onclick="transitionToPage('./index.html')">
+                <button class="btn btn-danger align-self-end submit_button submit_button:hover">Login</button>
+            </a>   
             
             
         </nav>
@@ -111,7 +111,11 @@
 
                     <button type="submit" class="btn btn-primary mx-auto w-50 my-3 register_button register_button:hover" onclick="handleRegister()">Register</button>
 
-                    <div class="text-center">Already have an account? <a href="./index.html">Login here</a></div>
+                    <div class="text-center">Already have an account? <a onclick="transitionToPage('./index.html')">
+                        <button class="btn btn-danger align-self-end submit_button submit_button:hover">Login</button>
+                    </a>  
+                    
+                    </div>
                 </div>
             </div>
 

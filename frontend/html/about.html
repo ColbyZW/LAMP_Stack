@@ -24,7 +24,7 @@
         document.querySelector('body').style.opacity = 0;
         setTimeout(function() { 
             window.location.href = href;
-        }, 1000);
+        }, 2000);
     };
 
     document.addEventListener('DOMContentLoaded', function(event) {
@@ -37,14 +37,14 @@
 </head>
 
 <body>
-    <section class="vh-100">
+    <section class="vh-100 about_background">
     
     <nav class="navbar bg-transparent">
         <b class="navbar-brand logo">
             The Best Contact Manager Ever!!!
         </b>
         <a onclick="transitionToPage('./homepage.html')">
-            <button class="btn btn-danger align-self-end logout_button logout_button:hover waves-effect">Home</button>
+            <button class="btn btn-danger align-self-end logout_button logout_button:hover">Home</button>
         </a>
 
     </nav>

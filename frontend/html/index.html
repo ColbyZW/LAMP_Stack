@@ -22,7 +22,7 @@
         document.querySelector('body').style.opacity = 0;
         setTimeout(function() { 
             window.location.href = href;
-        }, 1000);
+        }, 2000);
         };
 
     document.addEventListener('DOMContentLoaded', function(event) {
@@ -33,9 +33,9 @@
     <title>Login</title>
 </head>
 
-<body class="vh-100">
+<body>
     
-    <section class="index_background">
+    <section class="vh-100 index_background">
 
         <div class="leaf">
 
@@ -111,7 +111,10 @@
 
                 <button type="submit" class="btn btn-primary mx-auto w-50 my-3 login_button login_button:hover" onclick="handleLogin()">Login</button>
 
-                <div class="text-center">Need to make an account? <a href="./registration.html">Register here</a>
+                <div class="text-center">Need to make an account? <a onclick="transitionToPage('./registration.html')">
+                    <button class="btn btn-danger align-self-end link">Register here</button></a>
+                </div>
+
             </div>
 
         </div>
