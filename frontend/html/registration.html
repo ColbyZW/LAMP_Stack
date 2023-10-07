@@ -12,19 +12,6 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
 
-    <script>
-        window.transitionToPage = function(href) {
-        document.querySelector('body').style.opacity = 0;
-        setTimeout(function() { 
-            window.location.href = href;
-        }, 2000);
-        };
-
-    document.addEventListener('DOMContentLoaded', function(event) {
-        document.querySelector('body').style.opacity = 1;
-    });
-    </script>
-
     <title>Registration</title>
 </head>
 <body class="vh-100">
@@ -121,5 +108,17 @@
 
         </div>
     </section>
+    <script>
+        window.transitionToPage = function(href) {
+        document.querySelector('body').style.opacity = 0;
+        setTimeout(function() { 
+            window.location.href = href;
+        }, 2000);
+        };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        document.querySelector('body').style.opacity = 1;
+    });
+    </script>
 </body>
 </html>
