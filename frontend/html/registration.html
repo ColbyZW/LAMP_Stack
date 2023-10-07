@@ -11,11 +11,25 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
+
+    <script>
+        window.transitionToPage = function(href) {
+        document.querySelector('body').style.opacity = 0;
+        setTimeout(function() { 
+            window.location.href = href;
+        }, 2000);
+        };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        document.querySelector('body').style.opacity = 1;
+    });
+    </script>
+
     <title>Registration</title>
 </head>
-<body class="vh-100 registration_background ">
+<body class="vh-100">
 
-    <section>
+    <section class="registration_background">
 
         <div class="leaf">
 
@@ -53,56 +67,55 @@
             
         </div>
 
-    </section>
+        <nav class="navbar bg-transparent">
+            <b class="navbar-brand logo">
+                The Best Contact Manager Ever!!!
+            </b>
+            <a href="./index.html">
+                <button class="btn btn-danger align-self-end login_button logoin_button:hover">Login</button>
+            </a>
+            
+            
+        </nav>
 
-    <nav class="navbar bg-transparent">
-        <b class="navbar-brand logo">
-            The Best Contact Manager Ever!!!
-        </b>
-        <a href="./index.html">
-            <button class="btn btn-danger align-self-end login_button logoin_button:hover">Login</button>
-        </a>
-        
-        
-    </nav>
+        <div class="d-flex mx-auto flex-column justify-content-center w-50 h-100">
 
-    <div class="d-flex mx-auto flex-column justify-content-center w-50 h-100">
+            <!-- Register Card -->
+            <div class="card rounded-sm border border-secondary registration_card">
+                <div class="card-body d-flex flex-column justify-content-center">
+                    <h5 class="text-center my-3 card-title">Contact Manager Account Creation</h5> 
 
-        <!-- Register Card -->
-        <div class="card rounded-sm border border-secondary registration_card">
-            <div class="card-body d-flex flex-column justify-content-center">
-                <h5 class="text-center my-3 card-title">Contact Manager Account Creation</h5> 
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="usernameInput" class="form-label">Username</label>
+                        <input required type="text" class="form-control" id="usernameInput">
+                        <div class="text-danger" id="usernameValidation"></div>
+                    </div>
 
-                <!-- Username -->
-                <div class="mb-3">
-                    <label for="usernameInput" class="form-label">Username</label>
-                    <input required type="text" class="form-control" id="usernameInput">
-                    <div class="text-danger" id="usernameValidation"></div>
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Password</label>
+                        <input required type="password" class="form-control" id="passwordInput">
+                        <div class="text-danger" id="passwordValidation"></div>
+                        <div id="passwordHelp" class="form-text"><em>Passwords are case-sensitive</em></div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-3">
+                        <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+                        <input required type="password" class="form-control" id="confirmPasswordInput">
+                        <div class="text-danger" id="confirmPasswordValidation"></div>
+                    </div>
+
+                    <div class="text-center text-danger" id="errorText"></div>
+
+                    <button type="submit" class="btn btn-primary mx-auto w-50 my-3 register_button register_button:hover" onclick="handleRegister()">Register</button>
+
+                    <div class="text-center">Already have an account? <a href="./index.html">Login here</a></div>
                 </div>
-
-                <!-- Password -->
-                <div class="mb-3">
-                    <label for="passwordInput" class="form-label">Password</label>
-                    <input required type="password" class="form-control" id="passwordInput">
-                    <div class="text-danger" id="passwordValidation"></div>
-                    <div id="passwordHelp" class="form-text"><em>Passwords are case-sensitive</em></div>
-                </div>
-
-                <!-- Confirm Password -->
-                <div class="mb-3">
-                    <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
-                    <input required type="password" class="form-control" id="confirmPasswordInput">
-                    <div class="text-danger" id="confirmPasswordValidation"></div>
-                </div>
-
-                <div class="text-center text-danger" id="errorText"></div>
-
-                <button type="submit" class="btn btn-primary mx-auto w-50 my-3 register_button register_button:hover" onclick="handleRegister()">Register</button>
-
-                <div class="text-center">Already have an account? <a href="./index.html">Login here</a></div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </section>
 </body>
 </html>

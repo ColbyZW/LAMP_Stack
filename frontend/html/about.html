@@ -12,26 +12,41 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share Tech">
+    
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
             onPageLoad();
         }, false);
     </script>
 
+    <script>
+    window.transitionToPage = function(href) {
+        document.querySelector('body').style.opacity = 0;
+        setTimeout(function() { 
+            window.location.href = href;
+        }, 2000);
+    };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        document.querySelector('body').style.opacity = 1;
+        }
+    );
+    </script>
+
     <title>About</title>
 </head>
 
-<body class="vh-100 about_background">
-
+<body class="vh-100">
+    <section class="about_background">
+    
     <nav class="navbar bg-transparent">
         <b class="navbar-brand logo">
             The Best Contact Manager Ever!!!
         </b>
-        <a href="./homepage.html">
-            <button class="btn btn-danger align-self-end logout_button logout_button:hover">Home</button>
+        <a onclick="transitionToPage('./homepage.html')">
+            <button class="btn btn-danger align-self-end logout_button logout_button:hover waves-effect">Home</button>
         </a>
-        
-        
+
     </nav>
 
     <div class="d-flex mx-auto flex-column justify-content-start float-right w-50 h-100">
@@ -47,6 +62,8 @@
         </div>
 
     </div>
+
+    </section>    
     
 </body>
 </html>

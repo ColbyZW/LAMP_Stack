@@ -12,26 +12,41 @@
     <script type="text/javascript" src="../js/utility.js"></script>
     <script type="text/javascript" src="../js/homepage.js"></script>
     <script type="text/javascript" src="../js/md5.js"></script>
-    
+    <!--
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
             onPageLoad();
         }, false)
     </script>
+-->
+    <script>
+        window.transitionToPage = function(href) {
+        document.querySelector('body').style.opacity = 0;
+        setTimeout(function() { 
+            window.location.href = href;
+        }, 2000);
+        };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        document.querySelector('body').style.opacity = 1;
+    });
+    </script>
 
     <title>Main Page</title>
 </head>
-<body class="vh-100 background-image">
+<body>
 
-    <nav class="navbar bg-transparent">
-        <b class="navbar-brand logo">
-            The Best Contact Manager Ever!!!
-        </b>
-        <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button>
-        
-    </nav>
+    <section class="vh-100 background-image">
 
-    <!-- Edit Contact Modal -->
+        <nav class="navbar bg-transparent">
+            <b class="navbar-brand logo">
+                The Best Contact Manager Ever!!!
+            </b>
+            <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button>
+            
+        </nav>
+
+        <!-- Edit Contact Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content bg-light">
@@ -73,86 +88,88 @@
         </div>
 
 
-    <!-- Create New Contact Modal -->
-    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content bg-light">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create New Contact</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+        <!-- Create New Contact Modal -->
+        <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create New Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contact Name -->
+                        <div class="mb-3">
+                            <label for="contactName" class="form-label">Contact Name</label>
+                            <input required type="text" class="form-control" id="contactName">
+                            <div class="text-danger" id="nameValidation"></div>
+                        </div>
+
+                        <!-- Contact Phone Number -->
+                        <div class="mb-3">
+                            <label for="contactNumber" class="form-label">Contact Phone Number</label>
+                            <input required type="text" class="form-control" id="contactNumber">
+                            <div class="text-danger" id="phoneNumberValidation"></div>
+                        </div>
+
+                        <!-- Contact Email Address -->
+                        <div class="mb-3">
+                            <label for="contactEmail" class="form-label">Contact Email Address</label>
+                            <input required type="email" class="form-control" id="contactEmail">
+                            <div class="text-danger" id="emailValidation"></div>
+                        </div>
+
+                        <div class="text-center text-danger" id="errorText"></div>
+
+                        <button type="submit" class="btn btn-primary mx-auto w-50 my-3 submit_button submit_button:hover" onclick="addContact()">Submit</button>
+                    </div>
+
                 </div>
-                <div class="modal-body">
-                    <!-- Contact Name -->
-                    <div class="mb-3">
-                        <label for="contactName" class="form-label">Contact Name</label>
-                        <input required type="text" class="form-control" id="contactName">
-                        <div class="text-danger" id="nameValidation"></div>
-                    </div>
-
-                    <!-- Contact Phone Number -->
-                    <div class="mb-3">
-                        <label for="contactNumber" class="form-label">Contact Phone Number</label>
-                        <input required type="text" class="form-control" id="contactNumber">
-                        <div class="text-danger" id="phoneNumberValidation"></div>
-                    </div>
-
-                    <!-- Contact Email Address -->
-                    <div class="mb-3">
-                        <label for="contactEmail" class="form-label">Contact Email Address</label>
-                        <input required type="email" class="form-control" id="contactEmail">
-                        <div class="text-danger" id="emailValidation"></div>
-                    </div>
-
-                    <div class="text-center text-danger" id="errorText"></div>
-
-                    <button type="submit" class="btn btn-primary mx-auto w-50 my-3 submit_button submit_button:hover" onclick="addContact()">Submit</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="d-flex mx-auto flex-column justify-content-center w-75 h-100">
-
-        <!-- Main Card -->
-        <div class="bg-light card rounded-sm border border-secondary ">
-            <div class="card-body d-flex flex-column justify-content-center homepage_card">
-
-                <div class="mb-5 d-flex w-100 align-content-center justify-content-between">
-                    <div>
-                        <h5 class="text-center my-3 card-title" id="tableBanner"></h5> 
-                    </div>
-                    <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button>
-                </div>
-
-                <div class="d-flex w-100 align-content-center justify-content-between">
-                    <div class="d-flex flex-row align-content-center">
-                        <input required type="text" class="form-control" id="search">
-                        <button type="button" class="btn btn-secondary mb-2 search_button search_button:hover" onclick="handleSearch()">Search</button>
-                    </div>
-                    <button type="button" data-toggle="modal" data-target="#createModal" class="btn btn-primary align-self-end mb-2 new_contact_button new_contact_button:hover">Create New Contact</button>
-                </div>
-
-                <!-- Contacts Table -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Contact Name</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Options</th>
-                        </tr>
-                    </thead>
-                    <tbody id="contactTable">
-                    </tbody>
-                </table>
-
             </div>
         </div>
 
-        
-    </div>
+        <div class="d-flex mx-auto flex-column justify-content-center w-75 h-100">
+
+            <!-- Main Card -->
+            <div class="bg-light card rounded-sm border border-secondary ">
+                <div class="card-body d-flex flex-column justify-content-center homepage_card">
+
+                    <div class="mb-5 d-flex w-100 align-content-center justify-content-between">
+                        <div>
+                            <h5 class="text-center my-3 card-title" id="tableBanner"></h5> 
+                        </div>
+                        <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button>
+                    </div>
+
+                    <div class="d-flex w-100 align-content-center justify-content-between">
+                        <div class="d-flex flex-row align-content-center">
+                            <input required type="text" class="form-control" id="search">
+                            <button type="button" class="btn btn-secondary mb-2 search_button search_button:hover" onclick="handleSearch()">Search</button>
+                        </div>
+                        <button type="button" data-toggle="modal" data-target="#createModal" class="btn btn-primary align-self-end mb-2 new_contact_button new_contact_button:hover">Create New Contact</button>
+                    </div>
+
+                    <!-- Contacts Table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Contact Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactTable">
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 </body>
 </html>

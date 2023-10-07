@@ -12,6 +12,11 @@
   background-position: right bottom;
 }
 
+body { 
+    opacity: 0;
+    transition: opacity 1.5s;
+ }
+
 .background-image {
   background-image: url(fall.jpg);
   background-size: cover;
