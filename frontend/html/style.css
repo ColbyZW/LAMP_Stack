@@ -34,12 +34,24 @@
 
 .login_card {
     background-color: #EDDDD4;
-    background-image: linear-gradient(to bottom right, #ffffff 35%, #EDDDD4);
+    background-image: linear-gradient(to bottom right, #ffffff, #EDDDD4);
 }
 
 .about_card {
     background-color: transparent;
     font-family: "Share Tech";
+}
+
+.about_background {
+    height:100%;
+    width:100%;
+    background-image: url('leaf_macro.jpeg');
+    background-size: cover;
+}
+
+.homepage_card {
+    background-color: #EDDDD4;
+    background: radial-gradient(ellipse, #EDDDD4, #ffffff);
 }
 
 .login_button {
@@ -112,7 +124,8 @@
 }
 
 .registration_card {
-    background-color: #EDDDD4; 
+    background-color: #EDDDD4;
+    background-image: linear-gradient(to bottom left, #ffffff 35%, #EDDDD4);
 }
 
 .register_button {
@@ -124,13 +137,6 @@
     background-color:#283d3b;
     border-color: #000000;
     transition: 0.7s;
-}
-
-.about_background {
-    height:100%;
-    width:100%;
-    background-image: url('leaf_macro.jpeg');
-    background-size: cover;
 }
 
 a:link {
