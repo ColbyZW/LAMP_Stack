@@ -1,34 +1,12 @@
-.gradient_1 {
-  background-color: #AA076B; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to bottom right, #000000, #61045F, #AA076B 75%, #61045F, #000000);
-}
-
-.background-properties {
-  width: 100%;
-  height: auto;
-  background-image: url('halloween.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right bottom;
-}
-
 body { 
     opacity: 0;
-    transition: opacity 1.5s;
+    transition: opacity 1s; /*this is the fade time*/
  }
 
 .background-image {
   background-image: url(fall.jpg);
   background-size: cover;
 }
-
-.body_background {
-    margin:0;
-    padding:0;
-    overflow:hidden;
-    background-color:rgb(30, 13, 94);
-    color: rgb(44, 150, 97);
-  }
 
 .index_background {
     height:100%;
