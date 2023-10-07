@@ -28,7 +28,7 @@
 .index_background {
     height:100%;
     width:100%;
-    background-image: url('fall-road-pic.jpg');
+    background-image: url('Taughannock_Falls.png');
     background-size: cover;
 }
 
@@ -74,6 +74,13 @@
     background-color:#283d3b;
     border-color: #000000;
     transition: 0.7s;
+}
+
+.about_background {
+    height:100%;
+    width:100%;
+    background-image: url('leaf_macro.jpeg');
+    background-size: cover;
 }
 
 a:link {
