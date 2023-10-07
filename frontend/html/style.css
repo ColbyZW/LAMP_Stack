@@ -37,6 +37,10 @@
     background-image: linear-gradient(to bottom right, #ffffff 35%, #EDDDD4);
 }
 
+.about_card {
+    background-color: transparent;
+}
+
 .login_button {
     background-color: #197278;
     border-color: #000000;
