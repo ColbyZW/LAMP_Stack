@@ -16,6 +16,8 @@
     width:100%;
     background-image: url('Taughannock_Falls.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .login_card {
