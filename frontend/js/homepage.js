@@ -226,6 +226,8 @@ function addContact() {
         const response = JSON.parse(responseText);
         if (response.code === 200) {
             let modal = document.getElementById('createModal');
+            let myModal = bootstrap.Modal.getInstance(modal);
+            myModal.hide();
             createTable(responseText);
         }
         if (response.code === 500) {
