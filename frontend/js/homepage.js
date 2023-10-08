@@ -210,7 +210,8 @@ function addContact() {
         return;
     }
 
-    let myModal = new bootstrap.Modal(document.getElementById('createModal'));
+    let modal = document.getElementById('createModal');
+    let myModal = bootstrap.Modal.getInstance(modal);
     myModal.hide();
 
     const cookie = getCookie("username");
