@@ -10,7 +10,7 @@
     $date = date("Y/m/d");
 
     $stmt = $sqlConn->prepare("INSERT INTO contact_info (name, email, phone, username, uuid, date) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $inData["contactName"], $inData["contactEmail"], $inData["contactNumber"], $inData["username"], $uuid, $date);
+    $stmt->bind_param("ssssss", $inData["contactName"], $inData["contactEmail"], $inData["contactNumber"], $inData["username"], $uuid, $date);
     $stmt->execute();
     $stmt->close();
 
