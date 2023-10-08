@@ -1,9 +1,237 @@
-.gradient_1{
-  background-color: #EB5757; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right, #EB5757, #000000);
+.background-image {
+  background-image: url(fall.jpg);
+  background-size: cover;
 }
 
-.background-image {
-  background-image: url(./fall.jpg);
-  background-size: cover;
+.body_background {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background-color:rgb(30, 13, 94);
+    color: rgb(44, 150, 97);
+  }
+
+.index_background {
+    height:100%;
+    width:100%;
+    background-image: url('Taughannock_Falls.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.login_card {
+    background-color: #EDDDD4;
+    background-image: linear-gradient(to bottom right, #ffffff, #EDDDD4);
+}
+
+.about_card {
+    background-color: transparent;
+    font-family: "Share Tech";
+}
+
+.about_background {
+    height:100%;
+    width:100%;
+    background-image: url('leaf_macro.jpg');
+    background-size: cover;
+}
+
+.homepage_card {
+    background-color: #EDDDD4;
+    background: radial-gradient(ellipse, #EDDDD4, #ffffff);
+}
+
+.login_button {
+    background-color: #197278;
+    border-color: #000000;
+}
+
+.login_button:hover {
+    background-color:#283d3b;
+    border-color: #000000;
+    transition: 0.7s;
+}
+
+.logout_button {
+    background-color: #FE7126;
+    border-color: #FE7126;
+}
+
+.logout_button:hover {
+    background-color:#F04D32;
+    border-color: #F04D32;
+    transition: 0.7s;
+}
+
+.new_contact_button {
+    background-color: #197278;
+    border-color: #197278;
+}
+
+.new_contact_button:hover {
+    background-color:#283d3b;
+    border-color: #283d3b;
+    transition: 0.7s;
+}
+
+.submit_button {
+    background-color: #FFC601;
+    border-color: #FFC601;
+}
+
+.submit_button:hover {
+    background-color:#DDA33C;
+    border-color: #DDA33C;
+    transition: 0.7s;
+}
+
+.search_button {
+    background-color: #A0B19F;
+    border-color: #A0B19F;
+}
+
+.search_button:hover {
+    background-color:#9A9A9A;
+    border-color: #9A9A9A;
+    transition: 0.7s;
+}
+
+.logo {
+    color: white;
+    font-family: "Indie Flower";
+    font-size: 40px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.registration_background {
+    height:100%;
+    width:100%;
+    background-image: url('fall-road.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.registration_card {
+    background-color: #EDDDD4;
+    background-image: linear-gradient(to bottom left, #ffffff 35%, #EDDDD4);
+}
+
+.register_button {
+    background-color: #197278;
+    border-color: #000000;
+}
+
+.register_button:hover {
+    background-color:#283d3b;
+    border-color: #000000;
+    transition: 0.7s;
+}
+
+a:link {
+    color: #197278 ;
+}
+
+a:visited {
+    color: #9A031E;
+}
+
+a:hover {
+    color: #283D3B;
+    transition: 0.7s;
+}
+
+a:active {
+    color: #5F0F40;
+}
+
+.leaf{
+  position:absolute ;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+
+.leaf div{
+  position:absolute ;
+  display:block ;
+}
+
+.leaf div:nth-child(1){
+    left:35%; 
+    animation:fall 15s ease infinite ;
+    animation-delay:-2s;
+
+}
+
+.leaf div:nth-child(2){
+    left:70%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-4s;
+}
+
+.leaf div:nth-child(3){
+    left:5%; 
+    animation:fall 20s ease-in infinite ;
+    animation-delay:-7s;
+    
+}
+
+.leaf div:nth-child(4){
+    left:50%; 
+    animation:fall 18s ease-in-out infinite ; 
+    animation-delay:-5s;
+}
+
+.leaf div:nth-child(5){
+    left:80%; 
+    animation:fall 14s ease-out infinite ;
+    animation-delay:-5s;
+}
+
+.leaf div:nth-child(6){
+    left:22%; 
+    animation:fall 16s linear infinite ;
+    animation-delay:-10s;
+}
+
+.leaf div:nth-child(7){
+    left:90%; 
+    animation:fall 15s ease-in-out infinite ;
+    animation-delay:-4s;
+}
+  
+@keyframes fall{
+  0%{
+      opacity:1;
+      top:-10%;
+      transform:translateX (20px) rotate(0deg);
+  }
+  20%{
+      opacity:0.8;
+      transform:translateX (-20px) rotate(45deg);
+  }
+  40%{
+
+      transform:translateX (-20px) rotate(90deg);
+  }
+  60%{
+      
+      transform:translateX (-20px) rotate(135deg); 
+  }
+  80%{
+
+      transform:translateX (-20px) rotate(180deg);
+  }
+  100%{
+      
+      top:110%;
+      transform:translateX (-20px) rotate(225deg);
+  }
+}
+
+.leaf1{
+    transform: rotateX(180deg);
 }

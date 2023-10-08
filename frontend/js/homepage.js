@@ -210,6 +210,7 @@ function addContact() {
         return;
     }
 
+
     const cookie = getCookie("username");
 
     const data = {
@@ -224,6 +225,8 @@ function addContact() {
     function handleResponse(responseText) {
         const response = JSON.parse(responseText);
         if (response.code === 200) {
+            const closeButton = document.getElementById("closeCreateModal");
+            closeButton.click();
             createTable(responseText);
         }
         if (response.code === 500) {
