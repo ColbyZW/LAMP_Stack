@@ -109,6 +109,8 @@
     width:100%;
     background-image: url('fall-road.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .registration_card {
