@@ -211,7 +211,7 @@ function addContact() {
     }
 
     let myModal = new bootstrap.Modal(document.getElementById('createModal'));
-    myModal.toggle();
+    myModal.hide();
 
     const cookie = getCookie("username");
 
