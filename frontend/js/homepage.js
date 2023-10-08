@@ -227,6 +227,9 @@ function addContact() {
         if (response.code === 200) {
             const closeButton = document.getElementById("closeCreateModal");
             closeButton.click();
+            contactName = "";
+            contactEmail = "";
+            contactNumber = "";
             createTable(responseText);
         }
         if (response.code === 500) {
