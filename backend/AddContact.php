@@ -7,9 +7,10 @@
         sendJson('{"message": "Error connecting to database", "code": 401}');
     }
     $uuid = uniqid();
+    $date = date("Y/m/d");
 
-    $stmt = $sqlConn->prepare("INSERT INTO contact_info (name, email, phone, username, uuid) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $inData["contactName"], $inData["contactEmail"], $inData["contactNumber"], $inData["username"], $uuid);
+    $stmt = $sqlConn->prepare("INSERT INTO contact_info (name, email, phone, username, uuid, date) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $inData["contactName"], $inData["contactEmail"], $inData["contactNumber"], $inData["username"], $uuid, $date);
     $stmt->execute();
     $stmt->close();
 
