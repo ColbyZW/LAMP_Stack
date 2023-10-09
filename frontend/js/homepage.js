@@ -172,9 +172,9 @@ function editContact(contactId) {
 
 // Handles adding a new contact
 function addContact() {
-    let contactName = document.getElementById("contactName").value;
-    let contactNumber = document.getElementById("contactNumber").value;
-    let contactEmail = document.getElementById("contactEmail").value;
+    const contactName = document.getElementById("contactName").value;
+    const contactNumber = document.getElementById("contactNumber").value;
+    const contactEmail = document.getElementById("contactEmail").value;
 
     const nameError = document.getElementById("nameValidation");
     const numberError = document.getElementById("phoneNumberValidation");
@@ -227,9 +227,9 @@ function addContact() {
         if (response.code === 200) {
             const closeButton = document.getElementById("closeCreateModal");
             closeButton.click();
-            contactName = "";
-            contactEmail = "";
-            contactNumber = "";
+            document.getElementById("contactName").value = "";
+            document.getElementById("contactNumber").value = "";
+            document.getElementById("contactEmail").value = "";
             createTable(responseText);
         }
         if (response.code === 500) {
