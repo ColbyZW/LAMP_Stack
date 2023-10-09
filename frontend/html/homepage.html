@@ -25,10 +25,8 @@
 
     <nav class="navbar bg-transparent">
         <b class="navbar-brand logo">
-            The Best Contact Manager Ever!!!
+            The Best Contact Manager Ever
         </b>
-        <button type="button" onclick="handleLogout()" class="btn btn-danger align-self-end logout_button logout_button:hover">Logout</button>
-        
     </nav>
 
     <!-- Edit Contact Modal -->
@@ -65,7 +63,7 @@
 
                         <div class="text-center text-danger" id="editErrorText"></div>
 
-                        <button type="submit" id="editSubmit" class="btn mx-auto w-50 my-3 submit_button submit_button:hover" onclick="editContact(this.value)">Submit</button>
+                        <button type="submit" data-dismiss="modal" id="editSubmit" class="btn mx-auto w-50 my-3 submit_button submit_button:hover" onclick="editContact(this.value)">Submit</button>
                     </div>
 
                 </div>
@@ -78,8 +76,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content bg-light">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create New Contact</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="createModalLabel">Create New Contact</h5>
+                    <button id="closeCreateModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
