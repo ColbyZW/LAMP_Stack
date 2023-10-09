@@ -172,9 +172,9 @@ function editContact(contactId) {
 
 // Handles adding a new contact
 function addContact() {
-    const contactName = document.getElementById("contactName").value;
-    const contactNumber = document.getElementById("contactNumber").value;
-    const contactEmail = document.getElementById("contactEmail").value;
+    let contactName = document.getElementById("contactName").value;
+    let contactNumber = document.getElementById("contactNumber").value;
+    let contactEmail = document.getElementById("contactEmail").value;
 
     const nameError = document.getElementById("nameValidation");
     const numberError = document.getElementById("phoneNumberValidation");
