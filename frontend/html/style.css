@@ -32,9 +32,10 @@
 
 .about_background {
     height:100%;
-    width:100%;
+    width:auto;
     background-image: url('leaf_macro.jpg');
     background-size: cover;
+    background-position: right top;
 }
 
 .homepage_card {
