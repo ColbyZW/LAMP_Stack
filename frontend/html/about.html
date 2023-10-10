@@ -10,6 +10,8 @@
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share Tech">
 
@@ -21,7 +23,7 @@
     
     <nav class="navbar bg-transparent">
         <b class="navbar-brand logo">
-            The Best Contact Manager Ever!!!
+            The Best Contact Manager Ever
         </b>
         <a onclick="transitionToPage('index.html')">
             <button class="btn btn-danger align-self-end logout_button logout_button:hover">Home</button>
@@ -32,7 +34,7 @@
     <div class="d-flex mx-auto flex-column justify-content-start float-right w-50 h-100">
 
         <!-- About Card -->
-        <div class="about_card">
+        <div class="about_card animate__animated animate__fadeInRightBig">
             <h1 style="text-align:center">Group 16 Web Devs:</h1>
             <h1 style="text-align:center">Eduardo Vila - API Endpoints & Database</h1>
             <h1 style="text-align:center">Colby Wang - API Endpoints & Front End</h1>
@@ -52,7 +54,7 @@
     document.querySelector('body').style.opacity = 0;
     setTimeout(function() { 
         window.location.href = href;
-    }, 2000);
+    }, 200);
     };
 
 document.addEventListener('DOMContentLoaded', function(event) {

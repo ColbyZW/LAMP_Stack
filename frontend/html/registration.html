@@ -56,11 +56,8 @@
 
         <nav class="navbar bg-transparent">
             <b class="navbar-brand logo">
-                The Best Contact Manager Ever!!!
+                The Best Contact Manager Ever
             </b>
-            <a onclick="transitionToPage('index.html')">
-                <button class="btn btn-danger align-self-end submit_button submit_button:hover">Login</button>
-            </a>   
             
             
         </nav>
@@ -98,8 +95,8 @@
 
                     <button type="submit" class="btn btn-primary mx-auto w-50 my-3 register_button register_button:hover" onclick="handleRegister()">Register</button>
 
-                    <div class="text-center">Already have an account? <a onclick="transitionToPage('index.html')">
-                        <button class="btn btn-danger align-self-end submit_button submit_button:hover">Login</button>
+                    <div class="text-center">Already have an account? <a id="loginLink" title="Click here to login"
+                        href="index.html" onclick="transitionToPage('index.html'); return false;">Login here</a>
                     </a>  
                     
                     </div>
@@ -115,7 +112,7 @@
     document.querySelector('body').style.opacity = 0;
     setTimeout(function() { 
         window.location.href = href;
-    }, 2000);
+    }, 200);
     };
 
 document.addEventListener('DOMContentLoaded', function(event) {
