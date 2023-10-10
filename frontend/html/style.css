@@ -23,6 +23,7 @@ body {
 .about_card {
     background-color: transparent;
     font-family: "Share Tech";
+    text-shadow: 2px 2px 4px #ffffff;
 }
 
 .about_background {
